@@ -38,6 +38,9 @@
       {% elsif site.carpentry == "lab" %}
       <a href="{{ relative_root_path }}{% link index.md %}" class="pull-left">
         <img class="navbar-logo" src="{{ relative_root_path }}{% link /assets/img/carpentrieslab.svg %}" alt="The Carpentries Lab" />
+      {% elsif site.carpentry == "edna" %}
+      <a href="https://www.gbif.org/country/US/summary" class="pull-left">
+        <img class="navbar-logo" src="{{ relative_root_path }}{% link /assets/img/pn-green-logo.svg %}" alt="GBIF-US Node" />
       </a>
       {% endif %}
 
@@ -105,11 +108,11 @@
 	<li><a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path}}" data-checker-ignore>Improve this page <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></li>
 	{% endif %}
       </ul>
-      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
+<!--      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
         <div class="form-group">
           <input type="text" title="Google search" id="google-search" placeholder="Search..." aria-label="Google site search">
         </div>
-      </form>
+      </form>-->
     </div>
   </div>
 </nav>
