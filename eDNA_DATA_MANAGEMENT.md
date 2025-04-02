@@ -1,11 +1,8 @@
 ---
 layout: page
 title: "eDNA Data Management in the United States"
+subtitle: "Reading and References"
 ---
-# eDNA Data Management in the United States
-
-### Reading and References
-
 ## Suggested Reading
 
 **Background on the Science**
