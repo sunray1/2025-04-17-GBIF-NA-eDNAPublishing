@@ -303,8 +303,13 @@ footer .help-links
 
 img.navbar-logo {
   height: 2.6em; // synchronize with height of navbar
-  padding-top: 0.325em;
+  //padding-top: 0.325em;
   padding-right: 0.65em;
+}
+
+navbar-logo {
+  display: flex;
+  align-items: center;
 }
 
 div.branding {
