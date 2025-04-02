@@ -498,3 +498,21 @@ Please check the "Setup" page of
 <a href="{{site.incubator_lesson_site}}">the lesson homepage</a> for instructions to follow
 to obtain the software and data you will need to follow the lesson.
 {% endif %}
+
+<div class="attribution">
+  <p>
+    This work is derived from materials created by <strong>Software Carpentry</strong>, <strong>Data Carpentry</strong>, <strong>Library Carpentry</strong>, or <strong>The Carpentries</strong>. The content has been adapted for this workshop and is used under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.
+  </p>
+  <p>
+    For more information about the original lessons, visit the following websites:  
+    <ul>
+      <li><a href="https://software-carpentry.org/" target="_blank">Software Carpentry</a></li>
+      <li><a href="https://datacarpentry.org" target="_blank">Data Carpentry</a></li>
+      <li><a href="https://librarycarpentry.org" target="_blank">Library Carpentry</a></li>
+      <li><a href="https://carpentries.org" target="_blank">The Carpentries</a></li>
+    </ul>
+  </p>
+  <p>
+    Changes have been made to the original content to suit the goals of this workshop.
+  </p>
+</div>
