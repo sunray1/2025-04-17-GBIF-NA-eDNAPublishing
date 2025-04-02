@@ -436,6 +436,8 @@ Please check the "Setup" page of
 to obtain the software and data you will need to follow the lesson.
 {% endif %}
 
+
+<h2 id="attribution">Attribution</h2>
 <div class="attribution">
   <p>
     This work is derived from materials created by <strong>Software Carpentry</strong>, <strong>Data Carpentry</strong>, <strong>Library Carpentry</strong>, or <strong>The Carpentries</strong>. The content has been adapted for this workshop and is used under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.
