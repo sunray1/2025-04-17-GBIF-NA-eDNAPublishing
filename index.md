@@ -115,7 +115,7 @@ INTRODUCTION
 
 Edit the general explanatory paragraph below if you want to change
 the pitch.
-{% endcomment %}
+
 
 <p>
 <strong><a href="https://carpentries.org">The Carpentries</a></strong> project comprises the <a
@@ -129,6 +129,7 @@ skills to researchers.
 Sign up to receive future editions and read our full archive: <a href="https://carpentries.org/newsletter/">https://carpentries.org/newsletter/</a>
   </em>
 </p>
+{% endcomment %}
 {% if site.carpentry == "swc" %}
 {% include swc/intro.html %}
 {% elsif site.carpentry == "dc" %}
@@ -237,7 +238,7 @@ ACCESSIBILITY
 
 Modify the block below if there are any barriers to accessibility or
 special instructions.
-{% endcomment %}
+
 <p id="accessibility">
   <strong>Accessibility:</strong>
   We are committed to making this workshop
@@ -266,6 +267,7 @@ special instructions.
   in their native language. Translating data science terms also provides a teaching tool for Carpentries Instructors to reduce barriers 
   for their learners.
 </p>
+{% endcomment %}
 
 {% comment %}
 CONTACT EMAIL ADDRESS
@@ -292,11 +294,13 @@ Display the contact email address set in the configuration file.
   for more information.
 </p>
 
+{% comment %}
 <p id="roles">
   <strong>Roles:</strong>
   To learn more about the roles at the workshop (who will be doing what),
   refer to <a href="https://carpentries.org/workshop_faq/#what-are-the-roles-of-everyone-participating-in-a-workshop">our Workshop FAQ</a>.
 </p>
+{% endcomment %}
 
 {% comment %}
 WHO CAN ATTEND?
