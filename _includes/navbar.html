@@ -113,7 +113,7 @@
         {% elsif page.source == "Rmd" %}
 	<li><a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path|replace: "_episodes", "_episodes_rmd" | replace: ".md", ".Rmd"}}" data-checker-ignore>Improve this page <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></li>
 	{% else %}
-	<li class="navbar-right"><a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path}}" data-checker-ignore>Improve this page <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></li>
+	<li><a href="{{repo_url}}/edit/{{ default_branch }}/{{page.path}}" data-checker-ignore>Improve this page <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a></li>
 	{% endif %}
       </ul>
 <!--      <form class="navbar-form navbar-right" role="search" id="search" onsubmit="google_search(); return false;">
