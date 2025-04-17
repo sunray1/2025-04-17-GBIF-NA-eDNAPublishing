@@ -1,111 +1,488 @@
 ---
-title: 'The MDT'
+title: "The MDT"
 teaching: 10
-exercises: 2
+exercises: 0
+questions:
+- "How are The Carpentries lessons formatted?"
+objectives:
+- "Explain the header of each episode."
+- "Explain the overall structure of each episode."
+- "Explain why blockquotes are used to format parts of episodes."
+- "Explain the use of code blocks in episodes."
+keypoints:
+- "Lesson episodes are stored in _episodes/dd-subject.md."
+- "Each episode's title must include a title, time estimates, motivating questions, lesson objectives, and key points."
+- "Episodes should not use sub-titles or HTML layout."
+- "Code blocks can have the source, regular output, or error class."
+- "Special sections are formatted as blockquotes that open with a level-2 header and close with a class identifier."
+- "Special sections may be callouts or challenges; other styles are used by the template itself."
+math: true
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+A lesson consists of one or more episodes,
+each of which has:
 
-- How do you write a lesson using R Markdown and `{sandpaper}`?
+*   a [YAML][yaml] header containing required values
+*   some teachable content
+*   some exercises
 
-::::::::::::::::::::::::::::::::::::::::::::::::
+The diagram below shows the internal structure of a single episode file
+(click on the image to see a larger version):
 
-::::::::::::::::::::::::::::::::::::: objectives
+<a href="{{ page.root }}/fig/episode-format.png">
+  <img src="{{ page.root }}/fig/episode-format-small.png" alt="Formatting Rules" />
+</a>
 
-- Explain how to use markdown with the new lesson template
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+## Maximum Line Length
 
-::::::::::::::::::::::::::::::::::::::::::::::::
+Limit all lines to a maximum of 100 characters.
+`bin/lesson_check.py` will report lines longer than 100 characters
+and this can block your contributions of being accepted.
 
-## Introduction
+The two reasons behind the decision to enforce a maximum line length are
+(1) make diff and merge easier in the command line and other user interfaces
+and
+(2) make update of translation of the lessons easier.
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown][pandoc] for static files (with extension `.md`) and
-[R Markdown][r-markdown] for dynamic files that can render code into output
-(with extension `.Rmd`). Please refer to the [Introduction to The Carpentries
-Workbench][carpentries-workbench] for full documentation.
+## Locations and Names
 
-What you need to know is that there are three sections required for a valid
-Carpentries lesson template:
+Episode files are stored in `_episodes`
+or, for the case of R Markdown files, `_episodes_rmd`
+so that [Jekyll][jekyll] will create a [collection][jekyll-collection] for them.
+Episodes are named `dd-subject.md`,
+where `dd` is a two-digit sequence number (with a leading 0)
+and `subject` is a one- or two-word identifier.
+For example,
+the first three episodes of this example lesson are
+`_episodes/01-design.md`,
+`_episodes/02-tooling.md`
+and `_episodes/03-formatting.md`.
+These become `/01-design/index.html`, `/02-tooling/index.html`, and `/03-formatting/index.html`
+in the published site.
+When referring to other episodes, use:
 
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
+{% raw %}
+    [link text]({{ page.root }}{% link _episodes/dd-subject.md %})
+{% endraw %}
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+_i.e._, use [Jekyll's link tag][jekyll-link-tag] and the name of the file.
 
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
+## Episode Header
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Each episode's [YAML][yaml] header must contain:
 
-::::::::::::::::::::::::::::::::::::: challenge 
+*   the episode's title
+*   time estimates for teaching and exercises
+*   motivating questions
+*   lesson objectives
+*   a summary of key points
 
-## Challenge 1: Can you do it?
+These values are stored in the header so that [Jekyll][jekyll] will read them
+and make them accessible in other pages as `site.episodes.the_episode.key`,
+where `the_episode` is the particular episode
+and `key` is the key in the [YAML][yaml] header.
+This lets us do things like
+list each episode's key questions in the syllabus on the lesson home page.
 
-What is the output of this command?
+## Episode Structure
 
-```r
-paste("This", "new", "lesson", "looks", "good")
-```
+The episode layout template in `_layouts/episode.html` automatically creates
+an introductory block that summarizes the lesson's teaching time,
+exercise time,
+key questions,
+and objectives.
+It also automatically creates a closing block that lists its key points.
+In between,
+authors should use only:
 
-:::::::::::::::::::::::: solution 
+*   paragraphs
+*   images
+*   tables
+*   ordered and unordered lists
+*   code samples (described below).
+*   special blockquotes (described below)
 
-## Output
- 
-```output
-[1] "This new lesson looks good"
-```
+Authors should *not* use:
 
-:::::::::::::::::::::::::::::::::
+*   sub-titles (instead, use H2 subheadings (`##`) in the episode files)
+*   HTML layout (e.g., `div` elements).
 
 
-## Challenge 2: how do you nest solutions within challenge blocks?
+> ## Linking section IDs
+>
+> In the HTML output each header of a section, code sample, exercise will be associated with an
+> unique ID (the rules of the ID generation are given in kramdown
+> [documentation](https://kramdown.gettalong.org/converter/html.html#auto-ids),
+> but it is easier to look for them directly in the page sources).
+> These IDs can be used to easily link to the section by attaching the hash (`#`) followed by the ID
+> to the page's URL (like [this](#linking-section-ids)). For example, the instructor might copy the
+> link to the etherpad, so that the lesson opens in learners' web browser directly at the right
+> spot.
+{: .callout}
 
-:::::::::::::::::::::::: solution 
+## Formatting Code
 
-You can add a line with at least three colons and a `solution` tag.
+Inline code fragments are formatted using backticks (`` ` ``).
+Longer code blocks are formatted by opening and closing the block with `~~~` (three tildes),
+with a class specifier after the block:
 
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
+{% raw %}
+    ~~~
+    for thing in collection:
+        do_something
+    ~~~
+    {: .source}
+{% endraw %}
 
-## Figures
+which is rendered as:
 
-You can include figures generated from R Markdown:
+~~~
+for thing in collection:
+    do_something
+~~~
+{: .source}
 
-```{r pyramid, fig.alt = "pie chart illusion of a pyramid", fig.cap = "Sun arise each and every morning"}
-pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"), 
-  border = FALSE
-)
-```
-Or you can use pandoc markdown for static figures with the following syntax:
+The class specified at the bottom using an opening curly brace and colon,
+the class identifier with a leading dot,
+and a closing curly brace.
+The [template]({{ site.template_repo }}) provides three styles for code blocks:
 
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
+~~~
+.source: program source.
+~~~
+{: .source}
 
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
+~~~
+.output: program output.
+~~~
+{: .output}
 
-## Math
+~~~
+.error: error messages.
+~~~
+{: .error}
 
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
 
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
 
-Cool, right?
+### Syntax Highlighting
 
-::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
+The following styles like `.source`, but include syntax highlighting for the
+specified language.
+Please use them where possible to indicate the type of source being displayed,
+and to make code easier to read.
 
-::::::::::::::::::::::::::::::::::::::::::::::::
+`.language-bash`: Bash shell commands:
 
+~~~
+echo "Hello World"
+~~~
+{: .language-bash}
+
+`.language-html`: HTML source:
+
+~~~
+<html>
+<body>
+<em>Hello World</em>
+</body>
+</html>
+~~~
+{: .language-html}
+
+`.language-make`: Makefiles:
+
+~~~
+all:
+    g++ main.cpp hello.cpp -o hello
+~~~
+{: .language-make}
+
+`.language-matlab`: MATLAB source:
+
+~~~
+disp('Hello, world!')
+~~~
+{: .language-matlab}
+
+`.language-python`: Python source:
+
+~~~
+print("Hello World")
+~~~
+{: .language-python}
+
+`.language-r`: R source:
+
+~~~
+cat("Hello World")
+~~~
+{: .language-r}
+
+`.language-sql`: SQL source:
+
+~~~
+CREATE PROCEDURE HelloWorld AS
+PRINT 'Hello, world!'
+RETURN (0)
+~~~
+{: .language-sql}
+
+> ## Alternative Syntax highlighting
+> 
+> The majority of our lessons that use styles will have the three tilde syntax, but this is a
+> historical artifact and not commonly used outside of kramdown. You can specify a code block by
+> using three backticks followed by the class instead of the syntax above.
+> 
+> ````markdown
+> ```html
+> <html>
+> <body>
+> <em>Hello World</em>
+> </body>
+> </html>
+> ```
+> ````
+>
+> ```html
+> <html>
+> <body>
+> <em>Hello World</em>
+> </body>
+> </html>
+> ```
+> 
+> NOTE: this syntax will _not_ work for error, output, or warning code blocks.
+>
+> ### Historical Artifacts
+>
+> This code block syntax with three tildes followed by an 
+> [inline attribute list](https://kramdown.gettalong.org/syntax.html#inline-attribute-lists)
+> is [a departure from the original markdown
+> syntax](https://kramdown.gettalong.org/syntax.html#fenced-code-blocks). You may be wondering why
+> Carpentries lessons used this syntax in the first place if it was so different from original
+> markdown.
+>
+> At the time this guide was originally written, Lessons in The Carpentries were
+> using Jekyll with [kramdown](https://kramdown.gettalong.org/) to render
+> Markdown to HTML and back then, kramdown did not recognise three backticks as
+> code blocks. 
+{: .callout}
+
+
+> ## Highlighting for other languages
+> You may use other `language-*` classes to activate syntax highlighting
+> for other languages.
+> For example,
+>
+> {% raw %}
+>     ~~~
+>     title: "YAML Highlighting Example"
+>     description: "This is an example of syntax highlighting for YAML."
+>     array_values:
+>         - value_1
+>         - value_2
+>     ~~~
+>     {: .language-yaml }
+> {% endraw %}
+>
+>
+> will produce this:
+>
+> ~~~
+> title: "YAML Highlighting Example"
+> description: "This is an example of syntax highlighting for YAML."
+> array_values:
+>     - value_1
+>     - value_2
+> ~~~
+> {: .language-yaml }
+>
+>
+> Note that using `.language-*` classes other than
+> `.language-bash`
+> `.language-html`,
+> `.language-make`,
+> `.language-matlab`,
+> `.language-python`,
+> `.language-r`,
+> or `.language-sql`
+> will currently cause one of the tests in the lesson template's
+> `make lesson-check` to fail for your lesson,
+> but will not prevent lesson pages from building and rendering correctly.
+>
+{: .solution }
+
+
+## Special Blockquotes
+
+We use blockquotes to group headings and text
+rather than wrapping them in `div` elements.
+in order to avoid confusing [Jekyll][jekyll]'s parser
+(which sometimes has trouble with Markdown inside HTML).
+Each special blockquote must begin with a level-2 header,
+but may contain anything after that.
+For example,
+a callout is formatted like this:
+
+~~~
+> ## Callout Title
+>
+> text
+> text
+> text
+>
+> ~~~
+> code
+> ~~~
+> {: .source}
+{: .callout}
+~~~
+{: .source}
+
+(Note the empty lines within the blockquote after the title and before the code block.)
+This is rendered as:
+
+> ## Callout Title
+>
+> text
+> text
+> text
+>
+> ~~~
+> code
+> ~~~
+> {: .source}
+{: .callout}
+
+The [lesson template]({{ site.template_repo }}) defines styles
+for the following special blockquotes:
+
+<div class="row">
+  <div class="col-md-6" markdown="1">
+
+> ## `.callout`
+>
+> An aside or other comment.
+{: .callout}
+
+> ## `.challenge`
+>
+> An exercise.
+{: .challenge}
+
+> ## `.checklist`
+>
+> Checklists.
+{: .checklist}
+
+> ## `.discussion`
+>
+> Discussion questions.
+{: .discussion}
+
+> ## `.keypoints`
+>
+> Key points of an episode.
+{: .keypoints}
+
+  </div>
+  <div class="col-md-6" markdown="1">
+
+> ## `.objectives`
+>
+> Episode objectives.
+{: .objectives}
+
+> ## `.prereq`
+>
+> Prerequisites.
+{: .prereq}
+
+> ## `.solution`
+>
+> Exercise solution.
+{: .solution}
+
+> ## `.testimonial`
+>
+> A laudatory quote from a user.
+{: .testimonial}
+    
+> ## `.caution`
+>
+> A warning.
+{: .caution}
+
+  </div>
+</div>
+
+Note that `.challenge` and `.discussion` have the same color but different icons.
+Note also that one other class, `.quotation`,
+is used to mark actual quotations
+(the original purpose of the blockquote element).
+This does not add any styling,
+but is used to prevent the checking tools from complaining about a missing class.
+
+Most authors will only use `.callout`, `.challenge`, and `.prereq`,
+as the others are automatically generated by the template.
+Note that `.prereq` is meant for describing things
+that learners should know before starting this lesson;
+setup instructions do not have a particular style,
+but are instead put on the `setup.md` page.
+
+Note also that solutions are nested inside exercises as shown below:
+
+~~~
+> ## Challenge Title
+>
+> This is the body of the challenge.
+>
+> ~~~
+> it may include some code
+> ~~~
+> {: .source}
+>
+> > ## Solution
+> >
+> > This is the body of the solution.
+> >
+> > ~~~
+> > it may also include some code
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
+~~~
+{: .source}
+
+The double indentation is annoying to edit,
+but the alternatives we considered and discarded are worse:
+
+1.  Use HTML `<div>` elements for the challenges.
+    Most people dislike mixing HTML and Markdown,
+    and experience shows that it's all too easy to confuse Jekyll's Markdown parser.
+
+2.  Put solutions immediately after challenges rather than inside them.
+    This is simpler to edit,
+    but clutters up the page
+    and makes it harder for tools to tell which solutions belong to which exercises.
+
+## Applying a Shadow to Images
+
+By default, images in the lesson are displayed without borders or shadows.
+In some circumstances, it may be desirable to make images stand out
+from the background of the page,
+for example, when using screenshots that include text on white background.
+You can add a drop shadow effect to images by applying the
+`image-with-shadow` class to them:
+
+~~~
+{% raw %}![image alt text](path/to/image/source.svg){: .image-with-shadow }{% endraw %}
+~~~
+{: .source }
+
+[jekyll-link-tag]: https://jekyllrb.com/docs/liquid/tags/#link
+
+
+{% include links.md %}

@@ -1,86 +1,488 @@
 ---
-title: 'Suggested Reading and References'
+title: "Suggested Reading and References"
 teaching: 10
 exercises: 0
-editor_options: 
-  markdown: 
-    wrap: 72
+questions:
+- "How are The Carpentries lessons formatted?"
+objectives:
+- "Explain the header of each episode."
+- "Explain the overall structure of each episode."
+- "Explain why blockquotes are used to format parts of episodes."
+- "Explain the use of code blocks in episodes."
+keypoints:
+- "Lesson episodes are stored in _episodes/dd-subject.md."
+- "Each episode's title must include a title, time estimates, motivating questions, lesson objectives, and key points."
+- "Episodes should not use sub-titles or HTML layout."
+- "Code blocks can have the source, regular output, or error class."
+- "Special sections are formatted as blockquotes that open with a level-2 header and close with a class identifier."
+- "Special sections may be callouts or challenges; other styles are used by the template itself."
+math: true
 ---
 
-::: questions
--   How can I learn more?
-:::
+A lesson consists of one or more episodes,
+each of which has:
 
-::: objectives
--   Become familiar with useful references.
-:::
+*   a [YAML][yaml] header containing required values
+*   some teachable content
+*   some exercises
 
-## Background on the Science
+The diagram below shows the internal structure of a single episode file
+(click on the image to see a larger version):
 
-1. [The ecologist’s field guide to sequence‐based identification of biodiversity](https://doi.org/10.1111/2041-210X.12574) (Creer et al, 2016)
-1. [Past, present, and future perspectives of environmental DNA (eDNA) metabarcoding: A systematic review in methods, monitoring, and applications of global eDNA](https://doi.org/10.1016/j.gecco.2019.e00547) (Ruppert et al., 2019)
-1. [Critical considerations for communicating environmental DNA science](https://doi.org/10.1002/edn3.472) (Stein et al., 2024)
-1. [How, What, and Where You Sample Environmental DNA Affects Diversity Estimates and Species Detection](https://doi.org/10.1002/edn3.70042) (Kirtane et al., 2024)
-1. [A Guide to Environmental DNA Extractions for Non‐Molecular Trained Biologists, Ecologists, and Conservation Scientists](https://doi.org/10.1002/edn3.70002) (Rieder et al., 2024)
+<a href="{{ page.root }}/fig/episode-format.png">
+  <img src="{{ page.root }}/fig/episode-format-small.png" alt="Formatting Rules" />
+</a>
 
-## Data Management and Standards
+## Maximum Line Length
 
-1. [Publishing DNA‐derived data through biodiversity data platforms.](https://doi.org/10.35035/DOC-VF1A-NR22) (Finstad et al., 2023)
-1. [A Practical Approach to Using the Genomic Standards Consortium MIxS Reporting Standard for Comparative Genomics and Metagenomics](https://doi.org/10.1007/978-1-0716-3838-5_20) (Eloe‐Fadrosh et al., 2024)
-1. [The MIEM guidelines: Minimum information for reporting of environmental metabarcoding data](https://doi.org/10.3897/mbmg.8.128689). (Klymus et al. 2024)
-1. [Best practices for genetic and genomic data archiving](https://doi.org/10.1038/s41559-024-02423-7) (Leigh et al., 2024)
-1. [Centering accessibility, increasing capacity, and fostering innovation in the development of international eDNA standards](https://doi.org/10.3897/mbmg.8.126058) (Hirsch et al., 2024)
+Limit all lines to a maximum of 100 characters.
+`bin/lesson_check.py` will report lines longer than 100 characters
+and this can block your contributions of being accepted.
 
-## Policy
+The two reasons behind the decision to enforce a maximum line length are
+(1) make diff and merge easier in the command line and other user interfaces
+and
+(2) make update of translation of the lessons easier.
 
-1. [National Aquatic Environmental DNA Strategy](https://www.whitehouse.gov/wp-content/uploads/2024/06/NSTC_National-Aquatic-eDNA-Strategy.pdf) (eDNA Task Team, 2024)
+## Locations and Names
 
-## Standards Reference Material
+Episode files are stored in `_episodes`
+or, for the case of R Markdown files, `_episodes_rmd`
+so that [Jekyll][jekyll] will create a [collection][jekyll-collection] for them.
+Episodes are named `dd-subject.md`,
+where `dd` is a two-digit sequence number (with a leading 0)
+and `subject` is a one- or two-word identifier.
+For example,
+the first three episodes of this example lesson are
+`_episodes/01-design.md`,
+`_episodes/02-tooling.md`
+and `_episodes/03-formatting.md`.
+These become `/01-design/index.html`, `/02-tooling/index.html`, and `/03-formatting/index.html`
+in the published site.
+When referring to other episodes, use:
 
-1. [Publishing DNA‐derived data through biodiversity data platforms.](https://doi.org/10.35035/DOC-VF1A-NR22) (Finstad wt al., 2023)
+{% raw %}
+    [link text]({{ page.root }}{% link _episodes/dd-subject.md %})
+{% endraw %}
 
-#### Darwin Core
-1. Quick Reference Guide (term search): <https://dwc.tdwg.org/terms/>
-1. DNA Derived Data Extension: [https://rs.gbif.org/extension/gbif/1.0/dna_derived_data\_2022‐02‐23.xml](https://rs.gbif.org/extension/gbif/1.0/dna_derived_data_2022-02-23.xml)
+_i.e._, use [Jekyll's link tag][jekyll-link-tag] and the name of the file.
 
-#### MIxS
-1. Intro: [https://www.gensc.org/pages/standards‐intro.html](https://www.gensc.org/pages/standards-intro.html)
-1. Term search: <https://genomicsstandardsconsortium.github.io/mixs/term_list/>
+## Episode Header
 
-## Data Management Tools
+Each episode's [YAML][yaml] header must contain:
 
-1. GBIF Metabarcoding Data Toolkit (MDT): <https://mdt.gbif.org/>
-1. MDT User Guide: [https://docs.gbif‐uat.org/mdt‐user‐guide/en/](https://docs.gbif-uat.org/mdt-user-guide/en/)
-1. GBIF‐US MDT: <https://mdt.gbif.us/> ; manager: Stephen Formel (sformel\@usgs.gov)
-1. NOAA Omics Data Management Guide: [https://noaa‐omics‐dmg.readthedocs.io/en/latest/](https://noaa-omics-dmg.readthedocs.io/en/latest/)
+*   the episode's title
+*   time estimates for teaching and exercises
+*   motivating questions
+*   lesson objectives
+*   a summary of key points
 
-## Community Pages
+These values are stored in the header so that [Jekyll][jekyll] will read them
+and make them accessible in other pages as `site.episodes.the_episode.key`,
+where `the_episode` is the particular episode
+and `key` is the key in the [YAML][yaml] header.
+This lets us do things like
+list each episode's key questions in the syllabus on the lesson home page.
 
-1. GBIF: <https://www.gbif.org/dna>
-1. OBIS: [https://obis.org/2024/10/22/obis‐edna/](https://obis.org/2024/10/22/obis-edna/)
+## Episode Structure
 
-## References
+The episode layout template in `_layouts/episode.html` automatically creates
+an introductory block that summarizes the lesson's teaching time,
+exercise time,
+key questions,
+and objectives.
+It also automatically creates a closing block that lists its key points.
+In between,
+authors should use only:
 
-- Creer, S., Deiner, K., Frey, S., Porazinska, D., Taberlet, P., Thomas, W.K., Potter, C., Bik, H.M., 2016. The ecologist’s field guide to sequence‐based identification of biodiversity. Methods in Ecology and Evolution 7, 1008–1018. [https://doi.org/10.1111/2041‐210X.12574](https://doi.org/10.1111/2041-210X.12574)
+*   paragraphs
+*   images
+*   tables
+*   ordered and unordered lists
+*   code samples (described below).
+*   special blockquotes (described below)
 
-- eDNA Task Team of the Interagency Working Group on Biodiversity of the Subcommittee on Ocean Science and Technology Committee on Environment of the National Science & Technology Council. 2024. National Aquatic Environmental DNA Strategy. [https://www.whitehouse.gov/wpcontent/uploads/2024/06/NSTC_National‐Aquatic‐eDNA‐Strategy.pdf](https://www.whitehouse.gov/wp-content/uploads/2024/06/NSTC_National-Aquatic-eDNA-Strategy.pdf)
+Authors should *not* use:
 
-- Eloe‐Fadrosh, E.A., Mungall, C.J., Miller, M.A., Smith, M., Patil, S.S., Kelliher, J.M., Johnson, L.Y.D., Rodriguez, F.E., Chain, P.S.G., Hu, B., Thornton, M.B., McCue, L.A., McHardy, A.C., Harris, N.L., Reddy, T.B.K., Mukherjee, S., Hunter, C.I., Walls, R., Schriml, L.M., 2024. A Practical
-Approach to Using the Genomic Standards Consortium MIxS Reporting Standard for Comparative Genomics and Metagenomics, in: Setubal, J.C.,
-Stadler, P.F., Stoye, J. (Eds.), Comparative Genomics: Methods and Protocols. Springer US, New York, NY, pp. 587–609. [https://doi.org/10.1007/978‐1‐0716‐3838‐5_20](https://doi.org/10.1007/978-1-0716-3838-5_20)
+*   sub-titles (instead, use H2 subheadings (`##`) in the episode files)
+*   HTML layout (e.g., `div` elements).
 
-- Finstad, A.G., Andersson, A., Bissett, A., Fossøy, F., Grosjean, M., Hope, M., Kõljalg, U., Lundin, D., Nilsson, H., Prager, M., Jeppesen, T.S., Svenningsen, C., Schigel, D., Abarenkov, K., Provoost, P., Suominen, S., Frøslev, T.G., 2023. Publishing DNA‐derived data through biodiversity data platforms. [https://doi.org/10.35035/DOC‐VF1A‐NR22](https://doi.org/10.35035/DOC-VF1A-NR22)
 
-- Hirsch, S., Acharya‐Patel, N., Amamoo, P.A., Borrero‐Pérez, G.H., Cahyani, N.K.D., Ginigini, J.G.M., Hurley, K.K.C., Lopes‐Lima, M., Lopez, M.L., Mapholi, N., Ouattara, K.N., Pazmiño, D.A., Rii, Y., Thompson, F., Heyden, S. von der, Watsa, M., Yepes‐Narvaez, V., Allan, E.A., Kelly, R., 2024. Centering accessibility, increasing capacity, and fostering innovation in the development of international eDNA standards. Metabarcoding and Metagenomics 8, e126058. <https://doi.org/10.3897/mbmg.8.126058>
+> ## Linking section IDs
+>
+> In the HTML output each header of a section, code sample, exercise will be associated with an
+> unique ID (the rules of the ID generation are given in kramdown
+> [documentation](https://kramdown.gettalong.org/converter/html.html#auto-ids),
+> but it is easier to look for them directly in the page sources).
+> These IDs can be used to easily link to the section by attaching the hash (`#`) followed by the ID
+> to the page's URL (like [this](#linking-section-ids)). For example, the instructor might copy the
+> link to the etherpad, so that the lesson opens in learners' web browser directly at the right
+> spot.
+{: .callout}
 
-- Leigh, D.M., Vandergast, A.G., Hunter, M.E., Crandall, E.D., Funk, W.C., Garroway, C.J., Hoban, S., OylerMcCance, S.J., Rellstab, C., Segelbacher, G., Schmidt, C., Vázquez‐Domínguez, E., Paz‐Vinas, I., 2024. Best practices for genetic and genomic data archiving. Nat Ecol Evol 8, 1224–1232. [https://doi.org/10.1038/s41559‐024‐02423‐7](https://doi.org/10.1038/s41559-024-02423-7)
+## Formatting Code
 
-- Kirtane, A., Howard, L., Beaver, C.E., Hunter, M.E., Luikart, G., Deiner, K., 2024. How, What, and Where You Sample Environmental DNA Affects Diversity Estimates and Species Detection. Environmental DNA 6, e70042. <https://doi.org/10.1002/edn3.70042>
+Inline code fragments are formatted using backticks (`` ` ``).
+Longer code blocks are formatted by opening and closing the block with `~~~` (three tildes),
+with a class specifier after the block:
 
-- Klymus, K.E., Baker, J.D., Abbott, C.L., Brown, R.J., Craine, J.M., Gold, Z., Hunter, M.E., Johnson, M.D., Jones, D.N., Jungbluth, M.J., Jungbluth, S.P., Lor, Y., Maloy, A.P., Merkes, C.M., Noble, R., Patin, N.V., Sepulveda, A.J., Spear, S.F., Steele, J.A., Takahashi, M., Watts, A.W., Theroux, S., 2024. The MIEM guidelines: Minimum information for reporting of environmental metabarcoding data. Metabarcoding and Metagenomics 8, e128689. <https://doi.org/10.3897/mbmg.8.128689>
+{% raw %}
+    ~~~
+    for thing in collection:
+        do_something
+    ~~~
+    {: .source}
+{% endraw %}
 
-- Rieder, J., Jemmi, E., Hunter, M.E., Adrian‐Kalchhauser, I., 2024. A Guide to Environmental DNA Extractions for Non‐Molecular Trained Biologists, Ecologists, and Conservation Scientists. Environmental DNA 6, e70002. <https://doi.org/10.1002/edn3.70002>
+which is rendered as:
 
-- Ruppert, K.M., Kline, R.J., Rahman, M.S., 2019. Past, present, and future perspectives of environmental DNA (eDNA) metabarcoding: A systematic review in methods, monitoring, and applications of global eDNA. Global Ecology and Conservation 17, e00547. <https://doi.org/10.1016/j.gecco.2019.e00547>
+~~~
+for thing in collection:
+    do_something
+~~~
+{: .source}
 
-- Stein, E.D., Jerde, C.L., Allan, E.A., Sepulveda, A.J., Abbott, C.L., Baerwald, M.R., Darling, J., Goodwin, K.D., Meyer, R.S., Timmers, M.A., Thielen, P.M., 2024. Critical considerations for communicating environmental DNA science. Environmental DNA 6, e472. <https://doi.org/10.1002/edn3.472>
+The class specified at the bottom using an opening curly brace and colon,
+the class identifier with a leading dot,
+and a closing curly brace.
+The [template]({{ site.template_repo }}) provides three styles for code blocks:
+
+~~~
+.source: program source.
+~~~
+{: .source}
+
+~~~
+.output: program output.
+~~~
+{: .output}
+
+~~~
+.error: error messages.
+~~~
+{: .error}
+
+
+
+### Syntax Highlighting
+
+
+The following styles like `.source`, but include syntax highlighting for the
+specified language.
+Please use them where possible to indicate the type of source being displayed,
+and to make code easier to read.
+
+`.language-bash`: Bash shell commands:
+
+~~~
+echo "Hello World"
+~~~
+{: .language-bash}
+
+`.language-html`: HTML source:
+
+~~~
+<html>
+<body>
+<em>Hello World</em>
+</body>
+</html>
+~~~
+{: .language-html}
+
+`.language-make`: Makefiles:
+
+~~~
+all:
+    g++ main.cpp hello.cpp -o hello
+~~~
+{: .language-make}
+
+`.language-matlab`: MATLAB source:
+
+~~~
+disp('Hello, world!')
+~~~
+{: .language-matlab}
+
+`.language-python`: Python source:
+
+~~~
+print("Hello World")
+~~~
+{: .language-python}
+
+`.language-r`: R source:
+
+~~~
+cat("Hello World")
+~~~
+{: .language-r}
+
+`.language-sql`: SQL source:
+
+~~~
+CREATE PROCEDURE HelloWorld AS
+PRINT 'Hello, world!'
+RETURN (0)
+~~~
+{: .language-sql}
+
+> ## Alternative Syntax highlighting
+> 
+> The majority of our lessons that use styles will have the three tilde syntax, but this is a
+> historical artifact and not commonly used outside of kramdown. You can specify a code block by
+> using three backticks followed by the class instead of the syntax above.
+> 
+> ````markdown
+> ```html
+> <html>
+> <body>
+> <em>Hello World</em>
+> </body>
+> </html>
+> ```
+> ````
+>
+> ```html
+> <html>
+> <body>
+> <em>Hello World</em>
+> </body>
+> </html>
+> ```
+> 
+> NOTE: this syntax will _not_ work for error, output, or warning code blocks.
+>
+> ### Historical Artifacts
+>
+> This code block syntax with three tildes followed by an 
+> [inline attribute list](https://kramdown.gettalong.org/syntax.html#inline-attribute-lists)
+> is [a departure from the original markdown
+> syntax](https://kramdown.gettalong.org/syntax.html#fenced-code-blocks). You may be wondering why
+> Carpentries lessons used this syntax in the first place if it was so different from original
+> markdown.
+>
+> At the time this guide was originally written, Lessons in The Carpentries were
+> using Jekyll with [kramdown](https://kramdown.gettalong.org/) to render
+> Markdown to HTML and back then, kramdown did not recognise three backticks as
+> code blocks. 
+{: .callout}
+
+
+> ## Highlighting for other languages
+> You may use other `language-*` classes to activate syntax highlighting
+> for other languages.
+> For example,
+>
+> {% raw %}
+>     ~~~
+>     title: "YAML Highlighting Example"
+>     description: "This is an example of syntax highlighting for YAML."
+>     array_values:
+>         - value_1
+>         - value_2
+>     ~~~
+>     {: .language-yaml }
+> {% endraw %}
+>
+>
+> will produce this:
+>
+> ~~~
+> title: "YAML Highlighting Example"
+> description: "This is an example of syntax highlighting for YAML."
+> array_values:
+>     - value_1
+>     - value_2
+> ~~~
+> {: .language-yaml }
+>
+>
+> Note that using `.language-*` classes other than
+> `.language-bash`
+> `.language-html`,
+> `.language-make`,
+> `.language-matlab`,
+> `.language-python`,
+> `.language-r`,
+> or `.language-sql`
+> will currently cause one of the tests in the lesson template's
+> `make lesson-check` to fail for your lesson,
+> but will not prevent lesson pages from building and rendering correctly.
+>
+{: .solution }
+
+
+## Special Blockquotes
+
+We use blockquotes to group headings and text
+rather than wrapping them in `div` elements.
+in order to avoid confusing [Jekyll][jekyll]'s parser
+(which sometimes has trouble with Markdown inside HTML).
+Each special blockquote must begin with a level-2 header,
+but may contain anything after that.
+For example,
+a callout is formatted like this:
+
+~~~
+> ## Callout Title
+>
+> text
+> text
+> text
+>
+> ~~~
+> code
+> ~~~
+> {: .source}
+{: .callout}
+~~~
+{: .source}
+
+(Note the empty lines within the blockquote after the title and before the code block.)
+This is rendered as:
+
+> ## Callout Title
+>
+> text
+> text
+> text
+>
+> ~~~
+> code
+> ~~~
+> {: .source}
+{: .callout}
+
+The [lesson template]({{ site.template_repo }}) defines styles
+for the following special blockquotes:
+
+<div class="row">
+  <div class="col-md-6" markdown="1">
+
+> ## `.callout`
+>
+> An aside or other comment.
+{: .callout}
+
+> ## `.challenge`
+>
+> An exercise.
+{: .challenge}
+
+> ## `.checklist`
+>
+> Checklists.
+{: .checklist}
+
+> ## `.discussion`
+>
+> Discussion questions.
+{: .discussion}
+
+> ## `.keypoints`
+>
+> Key points of an episode.
+{: .keypoints}
+
+  </div>
+  <div class="col-md-6" markdown="1">
+
+> ## `.objectives`
+>
+> Episode objectives.
+{: .objectives}
+
+> ## `.prereq`
+>
+> Prerequisites.
+{: .prereq}
+
+> ## `.solution`
+>
+> Exercise solution.
+{: .solution}
+
+> ## `.testimonial`
+>
+> A laudatory quote from a user.
+{: .testimonial}
+    
+> ## `.caution`
+>
+> A warning.
+{: .caution}
+
+  </div>
+</div>
+
+Note that `.challenge` and `.discussion` have the same color but different icons.
+Note also that one other class, `.quotation`,
+is used to mark actual quotations
+(the original purpose of the blockquote element).
+This does not add any styling,
+but is used to prevent the checking tools from complaining about a missing class.
+
+Most authors will only use `.callout`, `.challenge`, and `.prereq`,
+as the others are automatically generated by the template.
+Note that `.prereq` is meant for describing things
+that learners should know before starting this lesson;
+setup instructions do not have a particular style,
+but are instead put on the `setup.md` page.
+
+Note also that solutions are nested inside exercises as shown below:
+
+~~~
+> ## Challenge Title
+>
+> This is the body of the challenge.
+>
+> ~~~
+> it may include some code
+> ~~~
+> {: .source}
+>
+> > ## Solution
+> >
+> > This is the body of the solution.
+> >
+> > ~~~
+> > it may also include some code
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
+~~~
+{: .source}
+
+The double indentation is annoying to edit,
+but the alternatives we considered and discarded are worse:
+
+1.  Use HTML `<div>` elements for the challenges.
+    Most people dislike mixing HTML and Markdown,
+    and experience shows that it's all too easy to confuse Jekyll's Markdown parser.
+
+2.  Put solutions immediately after challenges rather than inside them.
+    This is simpler to edit,
+    but clutters up the page
+    and makes it harder for tools to tell which solutions belong to which exercises.
+
+## Applying a Shadow to Images
+
+By default, images in the lesson are displayed without borders or shadows.
+In some circumstances, it may be desirable to make images stand out
+from the background of the page,
+for example, when using screenshots that include text on white background.
+You can add a drop shadow effect to images by applying the
+`image-with-shadow` class to them:
+
+~~~
+{% raw %}![image alt text](path/to/image/source.svg){: .image-with-shadow }{% endraw %}
+~~~
+{: .source }
+
+[jekyll-link-tag]: https://jekyllrb.com/docs/liquid/tags/#link
+
+
+{% include links.md %}
