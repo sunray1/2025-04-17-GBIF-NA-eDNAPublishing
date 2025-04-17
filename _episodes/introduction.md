@@ -1,7 +1,9 @@
 ---
+layout: episode
 title: "Introduction to DNA Data"
 teaching: 120
 exercises: 4
+order: 1
 ---
 
 ::: questions
