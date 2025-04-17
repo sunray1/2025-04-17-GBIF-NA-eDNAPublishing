@@ -3,15 +3,13 @@ layout: episode
 title: "Introduction to DNA Data"
 teaching: 120
 exercises: 4
+questions:
+- "Where do DNA data come from?"
+- "What do the look like?"
+objectives:
+keypoints:
 ---
 
-::: questions
--   Where do DNA data come from?
--   What do the look like?
-:::
-
-::: objectives
-:::
 
 ## Biodiversity observation ain’t easy
 
@@ -19,7 +17,7 @@ exercises: 4
 
 *- Yogi Berra never said this*
 
-![](/files/YogiBerra.jpg "Photograph of Yogi Berra baseball card. Photo by Richard Bartlaga under license CC BY-NC-ND 2.0")
+<img src="{{ page.root }}/files/YogiBerra.jpg" alt="Photograph of Yogi Berra baseball card. Photo by Richard Bartlaga under license CC BY-NC-ND 2.0" />
 
 #### Why?
 
