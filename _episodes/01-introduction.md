@@ -29,10 +29,6 @@ keypoints:
 
 ## There are many ways to observe biodiversity.
 
-::: instructor
-Inline instructor notes can help inform instructors of timing challenges associated with the lessons. They appear in the "Instructor View"
-:::
-
 ## Strengths of DNA as biodiversity evidence
 
 ## DNA helps, but it’s not a silver bullet
