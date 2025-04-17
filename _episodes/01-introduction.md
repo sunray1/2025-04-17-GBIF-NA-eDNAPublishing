@@ -17,7 +17,7 @@ keypoints:
 
 *- Yogi Berra never said this*
 
-![Photograph of Yogi Berra baseball card. Photo by Richard Bartlaga under license CC BY-NC-ND 2.0](/files/YogiBerra.jpg){: .image-with-shadow }
+![Photograph of Yogi Berra baseball card. Photo by Richard Bartlaga under license CC BY-NC-ND 2.0]({{ page.root }}/fig/YogiBerra.jpg){: .image-with-shadow }
 
 #### Why?
 
