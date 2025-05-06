@@ -46,7 +46,7 @@ To ensure DNA data are useful to the broadest possible community, a community gu
 
 ## Overview of DNA-derived Occurrences and Detection Data
 
-<embed src="{{ page.root }}/files/Intro-to-edna.pdf" type="application/pdf" width="1150" height="1000">
+<embed src="{{ page.root }}/files/Intro-to-edna.pdf" type="application/pdf" width="1150" height="700">
 
 ## Overview of Enriched Occurrences
 
@@ -64,11 +64,11 @@ Something here
 
 ### Do These Platforms Share Data?
 
-Yes—at least in part. The relationships between **BOLD**, **GenBank**, and **GBIF** involve some data sharing, but they serve different roles and audiences and they do not share all of their data with each other:
+Yes—at least in part. The relationships between **BOLD**, **GenBank**, and **GBIF** involve some data sharing, but they serve different roles and audiences, they do not share all of their data with each other, nor are they consistently cross-referenced or synced.
 
-- **BOLD**: Public records are shared with both GenBank and GBIF, but submission to GenBank is optional and must be initiated by the user.
-- **GenBank**: Stores a wide range of DNA sequence data; some records link to BOLD, but data are not automatically shared with GBIF.
-- **GBIF**: Not a primary sequence repository, but supports short sequences and links to external repositories via the DNA Derived Data extension.
+- **BOLD**: Has an integrated data exchange pipeline with GenBank, allowing for automatic submission of data upon initiation by the user. Once submitted, records are linked and updated from BOLD to GenBank, with taxonomic identification changes automatically communicated. 
+- **GenBank**: Stores a wide range of DNA sequence data, including records from BOLD. Data is not shared outward automatically.
+- **GBIF**: Pulls public data from BOLD and makes it available as part of biodiversity occurrence data. 
 
 ![Bar graph and Venn diagram showing how GenBank entries for barcoding link to BOLD and specimen vouchers.]({{ page.root }}/fig/Nakazato&Jinbo_2022_Fig1.jpg){: .image-with-shadow }
 
