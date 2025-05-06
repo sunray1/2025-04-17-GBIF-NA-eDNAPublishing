@@ -9,8 +9,6 @@ objectives:
 keypoints:
 ---
 
-# Introduction to DNA data
-
 ## Categories of DNA Data
 
 DNA derived data are increasingly being used to document taxon occurrences. This genetic data may come from a sampling event, an individual organism, may be linked to physical material (or not), or may result from DNA detection methods e.g., metabarcoding or qPCR. Thus genetic data may reflect a single organism, or may include information from bulk samples with many individuals. Still, DNA-derived occurrence data of species should be documented as standardized and as reproducible as possible.
@@ -40,8 +38,7 @@ To ensure DNA data are useful to the broadest possible community, a community gu
 > ## Workshop Focus
 >
 > For the purpose of this workshop, we will focus on the first three categories:  
-> **DNA-derived occurrences**, **Enriched occurrences**, and **Targeted species detection**.  
-> These represent the most common and practical entry points for publishing DNA data to biodiversity platforms like GBIF.
+> **DNA-derived occurrences**, **Enriched occurrences**, and **Targeted species detection**. These represent the most common and practical entry points for publishing DNA data to biodiversity platforms like GBIF.
 {: .keypoints}
 
 ## Overview of DNA-derived Occurrences and Detection Data
