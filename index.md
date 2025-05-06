@@ -149,7 +149,12 @@ This block displays the date and links to Google Calendar.
 <p id="when">
   <strong>When:</strong>
   {{page.humandate}}; {{page.humantime}}
+{% comment %}
+
   {% include workshop_calendar.html %}
+
+{% endcomment %}
+
 </p>
 {% endif %}
 

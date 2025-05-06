@@ -5,39 +5,16 @@ teaching: 120
 exercises: 4
 questions:
 - "Where do DNA data come from?"
-- "What do the look like?"
+- "What do they look like?"
 objectives:
 keypoints:
 ---
 
 
-## Biodiversity observation ain’t easy
+## Overview of DNA Derived Data
 
-*"Observing biodiversity ain't easy—too many species out there! By the time you figure out what you're lookin’ at, it’s already somethin’ else!"*
 
-*- Yogi Berra never said this*
-
-![Photograph of Yogi Berra baseball card. Photo by Richard Bartlaga under license CC BY-NC-ND 2.0]({{ page.root }}/fig/YogiBerra.jpg){: .image-with-shadow }
-
-#### Why?
-
--   Time and Labor intensive
--   Expensive
--   Requires taxonomic expertise
--   Dominated by conspicuous or commercial species
--   Conditions dependent
-
-## There are many ways to observe biodiversity.
-
-## Strengths of DNA as biodiversity evidence
-
-## DNA helps, but it’s not a silver bullet
-
-## DNA at GBIF: how it is accessed and used
-
-## Spectrum of Use Cases
-
-## Spectrum of Approaches
+<embed src="/files/GBIF-NA_eDNA_workshop_20250509.pdf" type="application/pdf" width="1150" height="2000">
 
 ## Introduction to NCBI and MixS standard
 
