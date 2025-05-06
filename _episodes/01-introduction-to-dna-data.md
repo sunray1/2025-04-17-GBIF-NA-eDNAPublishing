@@ -37,8 +37,11 @@ To ensure DNA data are useful to the broadest possible community, a community gu
 
 > ## Workshop Focus
 >
-> For the purpose of this workshop, we will focus on the first three categories:  
-> **DNA-derived occurrences**, **Enriched occurrences**, and **Targeted species detection**. These represent the most common and practical entry points for publishing DNA data to biodiversity platforms like GBIF.
+> For the purpose of this workshop, we will focus on the first three categories:
+>
+> **DNA-derived occurrences**, **Enriched occurrences**, and **Targeted species detection**.
+>
+>These represent the most common and practical entry points for publishing DNA data to biodiversity platforms like GBIF.
 {: .keypoints}
 
 ## Overview of DNA-derived Occurrences and Detection Data
