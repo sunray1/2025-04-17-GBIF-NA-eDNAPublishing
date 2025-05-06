@@ -52,6 +52,47 @@ To ensure DNA data are useful to the broadest possible community, a community gu
 
 Something here
 
-## Introduction to NCBI and MixS standard
+## Introduction to GenBank and BOLD
+
+### BOLD (Barcode of Life Data Systems)
+
+BOLD is a comprehensive informatics workbench launched in 2005 that supports the acquisition, storage, analysis, and publication of DNA barcode records. BOLD's primary purpose is to provide a centralized resource for DNA barcoding, which is a method used for species identification through DNA sequences, typically from the mitochondrial cytochrome c oxidase subunit 1 (COI) gene. As of May 2022, BOLD hosted over 11 million DNA barcodes, covering a broad spectrum of organisms: 239,000 animals, 71,000 plants, and 24,000 fungi.
+
+For a DNA record to be considered a formal barcode in BOLD, it must meet seven essential criteria:
+1. Species name
+2. Voucher data (catalog number and institution storing the specimen)
+3. Collection record (collector, collection date, and location with GPS coordinates)
+4. Specimen identifier
+5. Barcode sequence
+6. PCR primers used to generate the amplicon
+7. Trace files of the sequence data
+
+BOLD has become an invaluable tool for taxonomists, phylogeneticists, and biodiversity researchers due to its vast archive of DNA barcodes and its comprehensive metadata, which includes detailed specimen information and photographic evidence. The ability to cross-reference species with DNA data has made BOLD a key resource in the taxonomy and molecular biology fields.
+
+### GenBank
+
+GenBank, managed by the National Center for Biotechnology Information (NCBI), is one of the largest and most widely used DNA sequence databases in the world. It has been a core resource for molecular biologists and bioinformaticians for decades. GenBank is part of the International Nucleotide Sequence Database Collaboration (INSDC), which also includes the European Bioinformatics Institute (EBI) and the DNA Data Bank of Japan (DDBJ). Collectively, these three institutions house sequence data from a variety of organisms and provide open access to DNA sequences from across the globe.
+
+Over the years, GenBank has expanded beyond traditional gene sequences to include mitochondrial genomes, whole genomes, and data from next-generation sequencing (NGS) projects such as metagenomics and metabarcoding. GenBank also now houses data related to environmental DNA (eDNA), a form of DNA sequencing that detects genetic material in environmental samples (e.g., water or soil), which is becoming increasingly important in biodiversity research.
+
+While GenBank is widely used for archiving raw DNA sequence data, it has recently started supporting the integration of occurrence data linked to these sequences. This has facilitated the use of GenBank as a tool for biodiversity monitoring, allowing researchers to register and share occurrence information tied to DNA sequences.
+
+### How Are GenBank, BOLD, and GBIF Related?
+
+Though BOLD, GenBank, and GBIF are separate databases, they share a common goal of advancing biodiversity research by facilitating access to DNA data. Here’s a breakdown of how they relate:
+
+- **BOLD** focuses on DNA barcodes and has extensive metadata associated with each record. It is particularly useful for species identification and biodiversity monitoring. 
+- **GenBank**, on the other hand, is a more comprehensive database that contains a wide range of nucleotide sequence data, from genes and genomes to environmental samples. It includes barcode data but also supports much more extensive datasets.
+- **GBIF** is a global platform for biodiversity data and has begun supporting the sharing of occurrence data linked to DNA sequences. This includes eDNA and other forms of sequence-based biodiversity monitoring. While GBIF doesn't store sequence data itself, it provides a platform for the sharing and integration of biodiversity occurrence records, including those linked to sequences from GenBank or BOLD.
+
+### Do These Platforms Share Data?
+
+While these platforms do not automatically share data with each other, there is significant overlap in the types of data they store, and integration across these platforms is growing. For example:
+- **BOLD and GenBank** both contain DNA sequence data, but they each have different criteria and focus areas. BOLD is more tailored to barcode data, while GenBank supports a broader range of sequence types.
+- **GBIF** doesn’t directly store DNA sequences but acts as a facilitator for integrating occurrence data linked to genetic records from BOLD and GenBank. This helps connect sequence-based biodiversity monitoring with traditional biodiversity occurrence data.
+
+It’s important to note that while these databases share some data, they do so in different ways, often focusing on different aspects of biodiversity data. However, the increasing integration of DNA-derived data into biodiversity platforms like GBIF is fostering a more connected and comprehensive approach to biodiversity research.
+
+[Bar graph and Venn diagram showing how GenBank entries for barcoding link to BOLD and specimen vouchers.]({{ page.root }}/fig/Nakazato&Jinbo_2022_Fig1.jpg){: .image-with-shadow }
 
 ## It’s ok to not have it all figured out yet
