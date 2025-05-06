@@ -70,6 +70,6 @@ Yes—at least in part. The relationships between **BOLD**, **GenBank**, and **G
 - **GenBank**: Stores a wide range of DNA sequence data, including records from BOLD. Data is not shared outward automatically.
 - **GBIF**: Pulls public data from BOLD and makes it available as part of biodiversity occurrence data. 
 
-![Bar graph and Venn diagram showing how GenBank entries for barcoding link to BOLD and specimen vouchers.]({{ page.root }}/fig/Nakazato&Jinbo_2022_Fig1.jpg){: .image-with-shadow }
+![Venn Diagram showing how BOLD, GenBank and GBIF records overlap.]({{ page.root }}/fig/bold_gbif_gb.png){: .image-with-shadow }
 
 ## It’s ok to not have it all figured out yet
