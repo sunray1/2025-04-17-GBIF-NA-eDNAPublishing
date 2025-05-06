@@ -11,6 +11,8 @@ keypoints:
 
 # Introduction to DNA data
 
+## Categories of DNA Data
+
 DNA derived data are increasingly being used to document taxon occurrences. This genetic data may come from a sampling event, an individual organism, may be linked to physical material (or not), or may result from DNA detection methods e.g., metabarcoding or qPCR. Thus genetic data may reflect a single organism, or may include information from bulk samples with many individuals. Still, DNA-derived occurrence data of species should be documented as standardized and as reproducible as possible.
 
 To ensure DNA data are useful to the broadest possible community, a community guide entitled [Publishing DNA-derived data through biodiversity data platforms](https://docs.gbif-uat.org/publishing-dna-derived-data/1.0/en/) was published by GBIF, OBIS, and others. This guide is supported by the [DNA derived data extension for Darwin Core](http://rs.gbif.org/extension/gbif/1.0/dna_derived_data_2021-07-05.xml), which incorporates MIxS terms into the Darwin Core standard. There are 5 categories for which genetic data could fall into:  
@@ -30,12 +32,12 @@ To ensure DNA data are useful to the broadest possible community, a community gu
 5. **Metadata only**  
    Some datasets may not contain data at all but describe metadata in broad terms, such as project authors, scope or laboratory workflows and sequencing methods. These datasets can still be valuable, especially when paired with future data or linked through identifiers.
 
-> ## `.callout`
+> ## Categorizing Your DNA Data
 >
 > For a guide and decision tree on determining which category your DNA data falls into, see the [Data packaging and mapping](https://docs.gbif.org/publishing-dna-derived-data/1.0/en/#data-packaging-and-mapping) section of the GBIF guide.
 {: .callout}
 
-> ## `.keypoints`
+> ## Workshop Focus
 >
 > For the purpose of this workshop, we will focus on the first three categories:  
 > **DNA-derived occurrences**, **Enriched occurrences**, and **Targeted species detection**.  
@@ -44,7 +46,11 @@ To ensure DNA data are useful to the broadest possible community, a community gu
 
 ## Overview of DNA-derived Occurrences and Detection Data
 
-<embed src="https://sunray1.github.io/2025-05-09-GBIF-NA-DNAPublishing/files/GBIF-NA_eDNA_workshop_20250509.pdf" type="application/pdf" width="1150" height="2000">
+<embed src="{{ page.root }}/files/Intro-to-edna.pdf" type="application/pdf" width="1150" height="2000">
+
+## Overview of Enriched Occurrences
+
+Something here
 
 ## Introduction to NCBI and MixS standard
 
