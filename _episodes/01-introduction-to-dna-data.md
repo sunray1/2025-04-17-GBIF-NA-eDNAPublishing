@@ -46,7 +46,7 @@ To ensure DNA data are useful to the broadest possible community, a community gu
 
 ## Overview of DNA-derived Occurrences and Detection Data
 
-<embed src="{{ page.root }}/files/Intro-to-edna.pdf" type="application/pdf" width="1150" height="2000">
+<embed src="{{ page.root }}/files/Intro-to-edna.pdf" type="application/pdf" width="1150" height="1000">
 
 ## Overview of Enriched Occurrences
 
@@ -56,26 +56,11 @@ Something here
 
 ### BOLD (Barcode of Life Data Systems)
 
-BOLD is a comprehensive informatics workbench launched in 2005 that supports the acquisition, storage, analysis, and publication of DNA barcode records. BOLD's primary purpose is to provide a centralized resource for DNA barcoding, which is a method used for species identification through DNA sequences, typically from the mitochondrial cytochrome c oxidase subunit 1 (COI) gene. As of May 2022, BOLD hosted over 11 million DNA barcodes, covering a broad spectrum of organisms: 239,000 animals, 71,000 plants, and 24,000 fungi.
-
-For a DNA record to be considered a formal barcode in BOLD, it must meet seven essential criteria:
-1. Species name
-2. Voucher data (catalog number and institution storing the specimen)
-3. Collection record (collector, collection date, and location with GPS coordinates)
-4. Specimen identifier
-5. Barcode sequence
-6. PCR primers used to generate the amplicon
-7. Trace files of the sequence data
-
-BOLD has become an invaluable tool for taxonomists, phylogeneticists, and biodiversity researchers due to its vast archive of DNA barcodes and its comprehensive metadata, which includes detailed specimen information and photographic evidence. The ability to cross-reference species with DNA data has made BOLD a key resource in the taxonomy and molecular biology fields.
+**[BOLD](https://portal.boldsystems.org/)** is a comprehensive informatics workbench launched in 2005 that supports the acquisition, storage, analysis, and publication of DNA barcode records. BOLD's primary purpose is to provide a centralized resource for DNA barcoding, which is a method used for species identification through DNA sequences, typically from the mitochondrial cytochrome c oxidase subunit 1 (COI) gene. 
 
 ### GenBank
 
-GenBank, managed by the National Center for Biotechnology Information (NCBI), is one of the largest and most widely used DNA sequence databases in the world. It has been a core resource for molecular biologists and bioinformaticians for decades. GenBank is part of the International Nucleotide Sequence Database Collaboration (INSDC), which also includes the European Bioinformatics Institute (EBI) and the DNA Data Bank of Japan (DDBJ). Collectively, these three institutions house sequence data from a variety of organisms and provide open access to DNA sequences from across the globe.
-
-Over the years, GenBank has expanded beyond traditional gene sequences to include mitochondrial genomes, whole genomes, and data from next-generation sequencing (NGS) projects such as metagenomics and metabarcoding. GenBank also now houses data related to environmental DNA (eDNA), a form of DNA sequencing that detects genetic material in environmental samples (e.g., water or soil), which is becoming increasingly important in biodiversity research.
-
-While GenBank is widely used for archiving raw DNA sequence data, it has recently started supporting the integration of occurrence data linked to these sequences. This has facilitated the use of GenBank as a tool for biodiversity monitoring, allowing researchers to register and share occurrence information tied to DNA sequences.
+**[GenBank](https://www.ncbi.nlm.nih.gov/genbank/)**, managed by the National Center for Biotechnology Information (NCBI), is one of the largest and most widely used DNA sequence databases in the world. It has been a core resource for molecular biologists and bioinformaticians for decades. Over the years, GenBank has expanded beyond traditional gene sequences to include mitochondrial genomes, whole genomes, and data from next-generation sequencing (NGS) projects such as metagenomics and metabarcoding. 
 
 ### Do These Platforms Share Data?
 
@@ -85,6 +70,6 @@ Yes—at least in part. The relationships between **BOLD**, **GenBank**, and **G
 - **GenBank**: Stores a wide range of DNA sequence data; some records link to BOLD, but data are not automatically shared with GBIF.
 - **GBIF**: Not a primary sequence repository, but supports short sequences and links to external repositories via the DNA Derived Data extension.
 
-[Bar graph and Venn diagram showing how GenBank entries for barcoding link to BOLD and specimen vouchers.]({{ page.root }}/fig/Nakazato&Jinbo_2022_Fig1.jpg){: .image-with-shadow }
+![Bar graph and Venn diagram showing how GenBank entries for barcoding link to BOLD and specimen vouchers.]({{ page.root }}/fig/Nakazato&Jinbo_2022_Fig1.jpg){: .image-with-shadow }
 
 ## It’s ok to not have it all figured out yet
