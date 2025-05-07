@@ -50,9 +50,11 @@ To ensure DNA data are useful to the broadest possible community, a community gu
 
 ## Overview of Enriched Occurrences
 
-If genetic material is connected to an observation or a physical sample, we call it an “enriched occurrence.” This means that the DNA isn’t the only proof we have — we can also link it back to the actual organism that was seen or collected. This type of data includes things like DNA barcoding, where scientists use a short piece of DNA to help identify species, and some types of DNA metabarcoding, as long as there’s a known reference sample to go with it. For more on barcoding, check out:
+If genetic material is connected to an observation or a physical sample, we call it an “enriched occurrence.” This means the DNA isn’t the only line of evidence—we can also trace the data back to a specific organism that was seen, collected, or otherwise documented.
 
-> Centre for Biodiversity Genomics, University of Guelph (2021). The Global Taxonomy Initiative 2020: A Step-by-Step Guide for DNA Barcoding. Technical Series No. 94. Secretariat of the Convention on Biological Diversity, Montreal, 66 pages.<https://www.cbd.int/doc/publications/cbd-ts-94-en.pdf>
+This category includes a range of sequencing approaches such as DNA barcoding, whole genome sequencing, transcriptomics, target capture, or restriction digest assays (e.g., RAD-seq or ddRAD), as long as the sequences can be clearly associated with a reference sample (e.g., a museum specimen, tissue archive, or observational record). In many cases, metadata like voucher numbers, collection information, and taxonomic IDs are available and critical for data reuse.
+
+Importantly, enriched occurrences can be derived from both newly collected material and historical specimens. In some instances, an entire physical specimen may not have been retained—such as when a sample (e.g., hair, feathers, or plant tissue) was taken in the field—but sufficient metadata (e.g., date, location, taxon identification) still allows the genetic data to be linked to a valid occurrence record. 
 
 ## Introduction to GenBank and BOLD
 
@@ -68,10 +70,20 @@ If genetic material is connected to an observation or a physical sample, we call
 
 Yes—at least in part. The relationships between **BOLD**, **GenBank**, and **GBIF** involve some data sharing, but they serve different roles and audiences, they do not share all of their data with each other, nor are they consistently cross-referenced or synced.
 
-- **BOLD**: Has an integrated data exchange pipeline with GenBank, allowing for automatic submission of data upon initiation by the user. Once submitted, records are linked and updated from BOLD to GenBank, with taxonomic identification changes automatically communicated. 
-- **GenBank**: Stores a wide range of DNA sequence data, including records from BOLD. Data is not shared outward automatically.
-- **GBIF**: Pulls public data from BOLD and makes it available as part of biodiversity occurrence data. 
+- **BOLD**: Data in BOLD are categorized as either public or private. Only data marked as public (or those under embargo) can be pushed to GenBank, allowing for automatic submission of data upon initiation by the data manager. Once submitted, records are linked and updated from BOLD to GenBank, with taxonomic identification changes automatically communicated. 
+- **GenBank**: Stores a wide variety of DNA sequence data, including records submitted from BOLD. However, data is not automatically shared outward from GenBank, nor is it typically ingested by BOLD or GBIF.
+- **GBIF**: Ingests all publicly available data from BOLD and makes it accessible as part of global biodiversity occurrence data.
+
+> ## Record Distribution Across Platforms
+>
+> To see how the same DNA record can be distributed across platforms, explore this example:
+> - [BOLD record](https://portal.boldsystems.org/record/ABMMC131-06)
+> - [GenBank sequence](https://www.ncbi.nlm.nih.gov/nuccore/OQ968921.1)
+> - [GBIF occurrence](https://www.gbif.org/occurrence/2248495877)  
+> Together, these demonstrate how genetic, taxonomic, and occurrence information can be stored across separate but complementary systems.
+{: .discussion}
 
 ![Venn Diagram showing how BOLD, GenBank and GBIF records overlap.]({{ page.root }}/fig/bold_gbif_gb.png){: .image-with-shadow }
 
 ## It’s ok to not have it all figured out yet
+
