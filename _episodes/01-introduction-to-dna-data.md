@@ -80,7 +80,6 @@ Yes—at least in part. The relationships between **BOLD**, **GenBank**, and **G
 > - [BOLD record](https://portal.boldsystems.org/record/ABMMC131-06)
 > - [GenBank sequence](https://www.ncbi.nlm.nih.gov/nuccore/OQ968921.1)
 > - [GBIF occurrence](https://www.gbif.org/occurrence/2248495877)  
-> Together, these demonstrate how genetic, taxonomic, and occurrence information can be stored across separate but complementary systems.
 {: .discussion}
 
 ![Venn Diagram showing how BOLD, GenBank and GBIF records overlap.]({{ page.root }}/fig/bold_gbif_gb.png){: .image-with-shadow }
