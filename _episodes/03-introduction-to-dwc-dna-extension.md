@@ -19,10 +19,6 @@ keypoints:
 math: true
 ---
 
-# Introduction to DwC DNA Extension
-
-We have previously discussed different kinds of DNA data. This page focuses specifically on how these data types can be standardized and published using the Darwin Core (DwC) DNA Derived Data extension.
-
 ## What is the DwC DNA Extension and Why is it Important?
 
 The DNA Derived Data extension is a component of the **Darwin Core standard**, which is widely used for sharing biodiversity data. Its primary purpose is to enable the publication of information derived from DNA, such as sequences obtained from environmental samples (eDNA) or bulk samples, or detections made via methods like qPCR or ddPCR.
