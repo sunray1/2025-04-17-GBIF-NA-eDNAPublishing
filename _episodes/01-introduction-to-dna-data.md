@@ -46,7 +46,7 @@ To ensure DNA data are useful to the broadest possible community, a community gu
 
 ## Overview of DNA-derived Occurrences and Detection Data
 
-<embed src="{{ page.root }}/files/Intro-to-edna.pdf" type="application/pdf" width="1150" height="700">
+<embed src="{{ page.root }}/files/Intro-to-edna.pdf" type="application/pdf" width="100%" height="700">
 
 ## Overview of Enriched Occurrences
 
