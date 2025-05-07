@@ -50,7 +50,9 @@ To ensure DNA data are useful to the broadest possible community, a community gu
 
 ## Overview of Enriched Occurrences
 
-Something here
+If genetic material is connected to an observation or a physical sample, we call it an “enriched occurrence.” This means that the DNA isn’t the only proof we have — we can also link it back to the actual organism that was seen or collected. This type of data includes things like DNA barcoding, where scientists use a short piece of DNA to help identify species, and some types of DNA metabarcoding, as long as there’s a known reference sample to go with it. For more on barcoding, check out:
+
+> Centre for Biodiversity Genomics, University of Guelph (2021). The Global Taxonomy Initiative 2020: A Step-by-Step Guide for DNA Barcoding. Technical Series No. 94. Secretariat of the Convention on Biological Diversity, Montreal, 66 pages.<https://www.cbd.int/doc/publications/cbd-ts-94-en.pdf>
 
 ## Introduction to GenBank and BOLD
 
