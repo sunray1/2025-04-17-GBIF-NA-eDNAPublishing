@@ -99,11 +99,12 @@ Publishing biodiversity data can be messy—and that’s perfectly okay. A good 
 
 For instance, a mammal voucher collected by NEON is [published to GBIF](https://www.gbif.org/occurrence/2620843338), while the DNA material from that mammal is stored separately in a different dataset, also [published to GBIF](https://www.gbif.org/occurrence/3111103987). Because this DNA material was sequenced, it is [available on BOLD](https://portal.boldsystems.org/record/MAMN4332-19), which is also [published to GBIF](https://www.gbif.org/occurrence/2633526610). This has resulted in three separate records, which should probably only be one. Also note the taxonomic discrepencies!
 
-![Screenshot showing separate NEON records for the same specimen on GBIF]({{ page.root }}/fig/dups.png){: .image-with-shadow }
-**Figure**: Three GBIF records representing what is the same NEON specimen. a) shows the mammal voucher; b) is the DNA material derived from that voucher; and c) is the DNA barcode record from BOLD, which is also pushed to GBIF. These records are not linked, despite being biologically connected.
-
 These kinds of disconnects are common. The reality is: aligning genetic, voucher, and occurrence data takes time, tools, and coordination—and not every project has those resources. But that doesn’t mean the data shouldn’t be shared.
 
 Even if it’s imperfect, getting the data out there helps move science forward. It's far better than letting valuable information sit hidden for years, waiting for everything to be "just right."
 
 > **Good enough and accessible beats perfect and invisible.**
+
+![Screenshot showing separate NEON records for the same specimen on GBIF]({{ page.root }}/fig/dups.png){: .image-with-shadow }
+*Three GBIF records representing what is the same NEON specimen. a) shows the mammal voucher; b) is the DNA material derived from that voucher; and c) is the DNA barcode record from BOLD, which is also pushed to GBIF. These records are not linked, despite being biologically connected.*
+
