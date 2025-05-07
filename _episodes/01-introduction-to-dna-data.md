@@ -3,10 +3,19 @@ layout: episode
 title: "Introduction to DNA Data"
 teaching: 90
 questions:
-- "Where do DNA data come from?"
-- "What do they look like?"
+- "Where can I find examples of DNA-derived data being published?"
+- "How do BOLD, GenBank, and GBIF interact?"
+- "What are the categories of DNA-derived data?"
 objectives:
+- "Review examples of DNA-derived data published to GBIF, BOLD, and GenBank."
+- "Understand how DNA data are categorized and shared between platforms."
+- "Learn why publishing imperfect data is still valuable."
+- "Explore how BOLD, GenBank, and GBIF interact and share data."
 keypoints:
+- "DNA data can be shared on BOLD, GenBank, and GBIF, with varying levels of interaction."
+- "There are five main categories for DNA data, including DNA-derived occurrences and enriched occurrences."
+- "Even if data isn't perfect, making it accessible can lead to valuable insights."
+- "Data discrepancies, like taxonomic errors, are common but don't prevent data from being useful."
 ---
 
 ## Categories of DNA Data
