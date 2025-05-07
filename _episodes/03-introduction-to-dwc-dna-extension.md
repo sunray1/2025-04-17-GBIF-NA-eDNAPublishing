@@ -19,471 +19,90 @@ keypoints:
 math: true
 ---
 
-A lesson consists of one or more episodes,
-each of which has:
-
-*   a [YAML][yaml] header containing required values
-*   some teachable content
-*   some exercises
-
-The diagram below shows the internal structure of a single episode file
-(click on the image to see a larger version):
-
-<a href="{{ page.root }}/fig/episode-format.png">
-  <img src="{{ page.root }}/fig/episode-format-small.png" alt="Formatting Rules" />
-</a>
-
-## Maximum Line Length
-
-Limit all lines to a maximum of 100 characters.
-`bin/lesson_check.py` will report lines longer than 100 characters
-and this can block your contributions of being accepted.
-
-The two reasons behind the decision to enforce a maximum line length are
-(1) make diff and merge easier in the command line and other user interfaces
-and
-(2) make update of translation of the lessons easier.
-
-## Locations and Names
-
-Episode files are stored in `_episodes`
-or, for the case of R Markdown files, `_episodes_rmd`
-so that [Jekyll][jekyll] will create a [collection][jekyll-collection] for them.
-Episodes are named `dd-subject.md`,
-where `dd` is a two-digit sequence number (with a leading 0)
-and `subject` is a one- or two-word identifier.
-For example,
-the first three episodes of this example lesson are
-`_episodes/01-design.md`,
-`_episodes/02-tooling.md`
-and `_episodes/03-formatting.md`.
-These become `/01-design/index.html`, `/02-tooling/index.html`, and `/03-formatting/index.html`
-in the published site.
-When referring to other episodes, use:
-
-{% raw %}
-    [link text]({{ page.root }}{% link _episodes/dd-subject.md %})
-{% endraw %}
-
-_i.e._, use [Jekyll's link tag][jekyll-link-tag] and the name of the file.
-
-## Episode Header
-
-Each episode's [YAML][yaml] header must contain:
-
-*   the episode's title
-*   time estimates for teaching and exercises
-*   motivating questions
-*   lesson objectives
-*   a summary of key points
-
-These values are stored in the header so that [Jekyll][jekyll] will read them
-and make them accessible in other pages as `site.episodes.the_episode.key`,
-where `the_episode` is the particular episode
-and `key` is the key in the [YAML][yaml] header.
-This lets us do things like
-list each episode's key questions in the syllabus on the lesson home page.
-
-## Episode Structure
-
-The episode layout template in `_layouts/episode.html` automatically creates
-an introductory block that summarizes the lesson's teaching time,
-exercise time,
-key questions,
-and objectives.
-It also automatically creates a closing block that lists its key points.
-In between,
-authors should use only:
-
-*   paragraphs
-*   images
-*   tables
-*   ordered and unordered lists
-*   code samples (described below).
-*   special blockquotes (described below)
-
-Authors should *not* use:
-
-*   sub-titles (instead, use H2 subheadings (`##`) in the episode files)
-*   HTML layout (e.g., `div` elements).
-
-
-> ## Linking section IDs
->
-> In the HTML output each header of a section, code sample, exercise will be associated with an
-> unique ID (the rules of the ID generation are given in kramdown
-> [documentation](https://kramdown.gettalong.org/converter/html.html#auto-ids),
-> but it is easier to look for them directly in the page sources).
-> These IDs can be used to easily link to the section by attaching the hash (`#`) followed by the ID
-> to the page's URL (like [this](#linking-section-ids)). For example, the instructor might copy the
-> link to the etherpad, so that the lesson opens in learners' web browser directly at the right
-> spot.
-{: .callout}
-
-## Formatting Code
+# Introduction to DwC DNA Extension
 
-Inline code fragments are formatted using backticks (`` ` ``).
-Longer code blocks are formatted by opening and closing the block with `~~~` (three tildes),
-with a class specifier after the block:
+We have previously discussed different kinds of DNA data. This page focuses specifically on how these data types can be standardized and published using the Darwin Core (DwC) DNA Derived Data extension.
 
-{% raw %}
-    ~~~
-    for thing in collection:
-        do_something
-    ~~~
-    {: .source}
-{% endraw %}
+## What is the DwC DNA Extension and Why is it Important?
 
-which is rendered as:
+The DNA Derived Data extension is a component of the **Darwin Core standard**, which is widely used for sharing biodiversity data. Its primary purpose is to enable the publication of information derived from DNA, such as sequences obtained from environmental samples (eDNA) or bulk samples, or detections made via methods like qPCR or ddPCR.
 
-~~~
-for thing in collection:
-    do_something
-~~~
-{: .source}
-
-The class specified at the bottom using an opening curly brace and colon,
-the class identifier with a leading dot,
-and a closing curly brace.
-The [template]({{ site.template_repo }}) provides three styles for code blocks:
-
-~~~
-.source: program source.
-~~~
-{: .source}
-
-~~~
-.output: program output.
-~~~
-{: .output}
-
-~~~
-.error: error messages.
-~~~
-{: .error}
-
-
-
-### Syntax Highlighting
-
-
-The following styles like `.source`, but include syntax highlighting for the
-specified language.
-Please use them where possible to indicate the type of source being displayed,
-and to make code easier to read.
-
-`.language-bash`: Bash shell commands:
-
-~~~
-echo "Hello World"
-~~~
-{: .language-bash}
-
-`.language-html`: HTML source:
-
-~~~
-<html>
-<body>
-<em>Hello World</em>
-</body>
-</html>
-~~~
-{: .language-html}
-
-`.language-make`: Makefiles:
-
-~~~
-all:
-    g++ main.cpp hello.cpp -o hello
-~~~
-{: .language-make}
-
-`.language-matlab`: MATLAB source:
-
-~~~
-disp('Hello, world!')
-~~~
-{: .language-matlab}
-
-`.language-python`: Python source:
-
-~~~
-print("Hello World")
-~~~
-{: .language-python}
-
-`.language-r`: R source:
-
-~~~
-cat("Hello World")
-~~~
-{: .language-r}
-
-`.language-sql`: SQL source:
-
-~~~
-CREATE PROCEDURE HelloWorld AS
-PRINT 'Hello, world!'
-RETURN (0)
-~~~
-{: .language-sql}
-
-> ## Alternative Syntax highlighting
-> 
-> The majority of our lessons that use styles will have the three tilde syntax, but this is a
-> historical artifact and not commonly used outside of kramdown. You can specify a code block by
-> using three backticks followed by the class instead of the syntax above.
-> 
-> ````markdown
-> ```html
-> <html>
-> <body>
-> <em>Hello World</em>
-> </body>
-> </html>
-> ```
-> ````
->
-> ```html
-> <html>
-> <body>
-> <em>Hello World</em>
-> </body>
-> </html>
-> ```
-> 
-> NOTE: this syntax will _not_ work for error, output, or warning code blocks.
->
-> ### Historical Artifacts
->
-> This code block syntax with three tildes followed by an 
-> [inline attribute list](https://kramdown.gettalong.org/syntax.html#inline-attribute-lists)
-> is [a departure from the original markdown
-> syntax](https://kramdown.gettalong.org/syntax.html#fenced-code-blocks). You may be wondering why
-> Carpentries lessons used this syntax in the first place if it was so different from original
-> markdown.
->
-> At the time this guide was originally written, Lessons in The Carpentries were
-> using Jekyll with [kramdown](https://kramdown.gettalong.org/) to render
-> Markdown to HTML and back then, kramdown did not recognise three backticks as
-> code blocks. 
-{: .callout}
-
-
-> ## Highlighting for other languages
-> You may use other `language-*` classes to activate syntax highlighting
-> for other languages.
-> For example,
->
-> {% raw %}
->     ~~~
->     title: "YAML Highlighting Example"
->     description: "This is an example of syntax highlighting for YAML."
->     array_values:
->         - value_1
->         - value_2
->     ~~~
->     {: .language-yaml }
-> {% endraw %}
->
->
-> will produce this:
->
-> ~~~
-> title: "YAML Highlighting Example"
-> description: "This is an example of syntax highlighting for YAML."
-> array_values:
->     - value_1
->     - value_2
-> ~~~
-> {: .language-yaml }
->
->
-> Note that using `.language-*` classes other than
-> `.language-bash`
-> `.language-html`,
-> `.language-make`,
-> `.language-matlab`,
-> `.language-python`,
-> `.language-r`,
-> or `.language-sql`
-> will currently cause one of the tests in the lesson template's
-> `make lesson-check` to fail for your lesson,
-> but will not prevent lesson pages from building and rendering correctly.
->
-{: .solution }
-
-
-## Special Blockquotes
-
-We use blockquotes to group headings and text
-rather than wrapping them in `div` elements.
-in order to avoid confusing [Jekyll][jekyll]'s parser
-(which sometimes has trouble with Markdown inside HTML).
-Each special blockquote must begin with a level-2 header,
-but may contain anything after that.
-For example,
-a callout is formatted like this:
-
-~~~
-> ## Callout Title
->
-> text
-> text
-> text
->
-> ~~~
-> code
-> ~~~
-> {: .source}
-{: .callout}
-~~~
-{: .source}
-
-(Note the empty lines within the blockquote after the title and before the code block.)
-This is rendered as:
-
-> ## Callout Title
->
-> text
-> text
-> text
->
-> ~~~
-> code
-> ~~~
-> {: .source}
-{: .callout}
-
-The [lesson template]({{ site.template_repo }}) defines styles
-for the following special blockquotes:
-
-<div class="row">
-  <div class="col-md-6" markdown="1">
-
-> ## `.callout`
->
-> An aside or other comment.
-{: .callout}
-
-> ## `.challenge`
->
-> An exercise.
-{: .challenge}
-
-> ## `.checklist`
->
-> Checklists.
-{: .checklist}
-
-> ## `.discussion`
->
-> Discussion questions.
-{: .discussion}
-
-> ## `.keypoints`
->
-> Key points of an episode.
-{: .keypoints}
-
-  </div>
-  <div class="col-md-6" markdown="1">
-
-> ## `.objectives`
->
-> Episode objectives.
-{: .objectives}
-
-> ## `.prereq`
->
-> Prerequisites.
-{: .prereq}
-
-> ## `.solution`
->
-> Exercise solution.
-{: .solution}
-
-> ## `.testimonial`
->
-> A laudatory quote from a user.
-{: .testimonial}
-    
-> ## `.caution`
->
-> A warning.
-{: .caution}
-
-  </div>
-</div>
-
-Note that `.challenge` and `.discussion` have the same color but different icons.
-Note also that one other class, `.quotation`,
-is used to mark actual quotations
-(the original purpose of the blockquote element).
-This does not add any styling,
-but is used to prevent the checking tools from complaining about a missing class.
-
-Most authors will only use `.callout`, `.challenge`, and `.prereq`,
-as the others are automatically generated by the template.
-Note that `.prereq` is meant for describing things
-that learners should know before starting this lesson;
-setup instructions do not have a particular style,
-but are instead put on the `setup.md` page.
-
-Note also that solutions are nested inside exercises as shown below:
-
-~~~
-> ## Challenge Title
->
-> This is the body of the challenge.
->
-> ~~~
-> it may include some code
-> ~~~
-> {: .source}
->
-> > ## Solution
-> >
-> > This is the body of the solution.
-> >
-> > ~~~
-> > it may also include some code
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
-~~~
-{: .source}
-
-The double indentation is annoying to edit,
-but the alternatives we considered and discarded are worse:
-
-1.  Use HTML `<div>` elements for the challenges.
-    Most people dislike mixing HTML and Markdown,
-    and experience shows that it's all too easy to confuse Jekyll's Markdown parser.
-
-2.  Put solutions immediately after challenges rather than inside them.
-    This is simpler to edit,
-    but clutters up the page
-    and makes it harder for tools to tell which solutions belong to which exercises.
-
-## Applying a Shadow to Images
-
-By default, images in the lesson are displayed without borders or shadows.
-In some circumstances, it may be desirable to make images stand out
-from the background of the page,
-for example, when using screenshots that include text on white background.
-You can add a drop shadow effect to images by applying the
-`image-with-shadow` class to them:
-
-~~~
-{% raw %}![image alt text](path/to/image/source.svg){: .image-with-shadow }{% endraw %}
-~~~
-{: .source }
-
-[jekyll-link-tag]: https://jekyllrb.com/docs/liquid/tags/#link
-
-
-{% include links.md %}
+Publishing DNA-derived data through platforms like GBIF and OBIS is crucial because it allows these data to be **discoverable, accessible, interoperable, and reusable** alongside other types of biodiversity information, such as museum specimens or field observations. This integration helps to document taxon occurrences, even for organisms that are difficult to observe physically. By standardizing the reporting of DNA-derived occurrences, regardless of whether the detected species have formal scientific names, the data becomes more **reproducible and comparable**. This is particularly important for characterizing occurrences of the vast number of species that remain undescribed. Openly reporting these data increases their **citability**, highlights taxa relevant for conservation, and contributes to taxonomic and ecological knowledge.
 
+The extension helps to capture detailed information about the **sampling, processing, and bioinformatic methods** used to generate the DNA data. This metadata is essential for users accessing the data to understand how it was produced and evaluate its reliability.
+
+## History and Development
+
+The effort to standardize the publication of DNA-derived data through biodiversity platforms is a collaborative one. A community guide titled **"Publishing DNA-derived data through biodiversity data platforms"** was published by GBIF, OBIS, and other partners to provide guidance on this topic. This guide is supported by the DNA Derived Data extension for Darwin Core.
+
+The extension incorporates terms from the **Minimum Information about any (x) Sequence (MIxS) standard**, developed by the Genomic Standards Consortium (GSC). It also includes fields from the GGBN standard and the MIQE guidelines (minimum information for the publication of quantitative real-time PCR experiments) to accommodate various types of DNA data, including qPCR and ddPCR. This ongoing effort involves groups like the Sustainable DwC-MIxS interoperability task group under TDWG. OBIS has also been developing a bioinformatics pipeline to facilitate the publication of marine DNA data, initially for the PacMAN project, which aims to output DwC-compatible tables including DNA-derived data.
+
+## What Kinds of Data Can It Handle?
+
+The DNA Derived Data extension is designed to handle data from various DNA-based methods used to document taxon occurrences, including:
+
+*   **Environmental DNA (eDNA) and Metabarcoding:** Data derived from sequencing DNA extracted from environmental samples (like water, soil, or air) or bulk samples containing multiple individuals.
+*   **Barcoding:** Data where a short, standardized DNA fragment is used to identify an individual organism.
+*   **Metagenomics:** Although metabarcoding is used as the primary model, the concepts for publishing sequence-derived diversity data using the extension can apply to metagenomic data, which involves sequencing all DNA in a sample.
+*   **Targeted Species Detection (qPCR/ddPCR):** Data resulting from methods like Quantitative Polymerase Chain Reaction (qPCR) or Droplet-Digital Polymerase Chain Reaction (ddPCR), which detect specific DNA sequences using species-specific primers but do not necessarily generate the full DNA sequence of the target.
+
+The sources categorize DNA-derived data into five types for mapping purposes: DNA-derived occurrences (Category I), Enriched occurrences (Category II), Targeted species detection (Category III), Name references (Category IV), and Metadata only (Category V). The DNA Derived Data extension is primarily used for Categories I, II, and III.
+
+## Generally How to Use It
+
+When publishing DNA-derived data using the DwC standard, the data should generally be published with the **Occurrence core**. This approach is currently recommended because it allows occurrence-level data, such as processed barcode sequences, to be linked effectively. The DNA Derived Data extension file is then **linked to the Occurrence core** data table using the `occurrenceID` and/or `eventID` fields. Datasets may also include an **extendedMeasurementOrFact (eMoF) extension file** for additional measurements, such as environmental parameters like temperature or salinity.
+
+Data is often initially spread across multiple files (e.g., OTU-table, taxonomy table, sample information table, .fasta file). For publishing, this data needs to be formatted into a **"long format"**, where each unique sequence by sample combination is considered a single occurrence, occupying one row in the data table.
+
+### Key Darwin Core Terms
+
+When compiling DNA-derived datasets, several terms in the Occurrence core table are particularly important.
+
+For **Metabarcoding and Barcoding** data (Categories I & II):
+
+*   **`basisOfRecord`**: For DNA-derived occurrences (Category I), this should be `MaterialSample`. For enriched occurrences (Category II), use `PreservedSpecimen` or `LivingSpecimen` as appropriate.
+*   **`organismQuantity`**: Records the **amount of a unique sequence** (e.g., number of reads) in a specific sample. For ddPCR, it refers to the number of positive partitions.
+*   **`organismQuantityType`**: Should be populated with "**DNA sequence reads**" for sequencing studies. For ddPCR, it's the partition type (e.g., "ddPCR droplets").
+*   **`sampleSizeValue`**: Records the **total number of all reads** in a specific sample for sequencing studies. For ddPCR, it's the number of accepted partitions.
+*   **`sampleSizeUnit`**: Should be "**DNA sequence reads**" for sequencing studies. For ddPCR, it's the partition type.
+*   **`associatedSequences`**: Contains a reference (like a URL or ID) to where genetic sequence information associated with the occurrence can be found, such as a public repository (e.g., NCBI BioProject). It is recommended that links include the domain name.
+*   **`identificationRemarks`**: Used to document the taxonomic identification process, including the reference database used and confidence level. This information is often also recorded in the DNA Derived Data extension fields `otu_seq_comp_appr` and `otu_db`.
+*   **`identificationReferences`**: Should include a link to the bioinformatic pipeline or publication detailing the identification process.
+*   **`taxonConceptID`**: Can include a taxonomic ID from a reference database that is not a Linnean name (e.g., NCBI:txid9771).
+*   **`verbatimIdentification`**: Can record the original name or identifier used.
+*   **`samplingProtocol`**: Can contain a description or link to the methods used to obtain the sample.
+*   **`materialSampleID`**: An identifier for the physical material sample. If available, use a biosample ID from a nucleotide archive.
+
+For **qPCR/ddPCR** data (Category III), in addition to many of the above, specific attention is paid to quantity fields and methods. `scientificName` is a required term for both metabarcoding and qPCR data, along with higher taxonomy fields. OBIS, specifically, recommends using the scientific name as listed in the WoRMS database, which differs slightly from GBIF's recommendation for sequence-derived data.
+
+### Key DNA Derived Data Extension Terms
+
+The DNA Derived Data extension is where most of the specific molecular metadata is captured.
+
+For **Metabarcoding** data (Categories I & II):
+
+*   **`DNA_sequence`**: **The most important field**. This is where the actual ASV/OTU sequence is recorded. This allows for searching and future reinterpretation as reference databases improve. Note: This field is **not used** for qPCR/ddPCR data.
+*   **`sop`**: Standard operating procedures used, ideally referenced with a link (e.g., protocols.io).
+*   **`target_gene`** and **`target_subfragment`**: Identify the specific genetic region targeted (e.g., 16S rRNA, 18S V9 region).
+*   **`pcr_primer_forward`**, **`pcr_primer_reverse`**, **`pcr_primer_name_forward`**, **`pcr_primer_name_reverse`**, **`pcr_primer_reference`**: Details about the PCR primers used.
+*   **`pcr_cond`**: PCR conditions.
+*   **`annealingTemp`** and **`annealinTempUnit`**: The annealing temperature used in PCR.
+*   **`ampliconSize`**: The size of the amplified DNA fragment.
+*   **`env_broad_scale`**, **`env_local_scale`**, **`env_medium`**: Describe the environmental system from which the sample was extracted.
+*   **`lib_layout`**: Describes the library layout (e.g., paired-end).
+*   **`seq_meth`**: Sequencing method used (e.g., Illumina MiSeq).
+*   **`otu_class_appr`**, **`otu_seq_comp_appr`**, **`otu_db`**: Describe the methods and databases used for taxonomic annotation (e.g., DADA2, BLAST, Genbank nr).
+
+For **qPCR/ddPCR** data (Category III), many of the fields related to PCR and environmental context are still important and highly recommended, such as `sop`, `target_gene`, `pcr_primer` fields, and `env_` fields. Additional terms related to the DNA sample before qPCR analysis (e.g., `concentration`, `ratioOfAbsorbance260_280`) and qPCR-specific terms (e.g., `quantificationCycle`) are also available.
+
+### Handling Unknown Sequences
+
+Even sequences that cannot be fully characterized or assigned to a known taxon should be recorded. For unknown sequences, it is required to populate the `scientificName` field with "**Incertae sedis**" or the lowest known taxonomic rank. The `scientificNameID` should be populated accordingly; for Incertae sedis, it should be `urn:lsid:marinespecies.org:taxname:12` for OBIS data. It is also recommended to use `verbatimIdentification` for the originally documented name. Crucially, **all sequences, including uncharacterized ones, should be recorded** in the `DNA_sequence` field to allow for future identification as reference databases improve.
+
+### Publishing the Data
+
+Once the data tables are formatted and mapped, they are typically published through an IPT (Integrated Publishing Toolkit). This involves uploading the source files, mapping them to the Darwin Core Occurrence core terms, and then mapping to the DNA Derived Data extension terms. The extension must first be installed by the IPT administrator.
+
+While the Darwin Core Archive (DwC-A) with the Occurrence core and extensions is the current standard, the structure for publishing DNA-derived data may evolve to better handle the hierarchical nature of samples and occurrences derived from a single event. Regardless of format, publishing DNA-derived data makes it available through biodiversity data platforms, often with a **Digital Object Identifier (DOI)**, which facilitates data citation and credits data originators.
+
+In summary, the DwC DNA Derived Data extension provides a structured framework for standardizing and publishing diverse types of DNA-based biodiversity data, ensuring they can be effectively discovered, integrated, and reused by the wider scientific community.
