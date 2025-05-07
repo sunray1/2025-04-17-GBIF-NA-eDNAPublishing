@@ -23,7 +23,7 @@ math: true
 
 The DNA Derived Data extension is a component of the **Darwin Core standard**, which is widely used for sharing biodiversity data. Its primary purpose is to enable the publication of information derived from DNA, such as sequences obtained from environmental samples (eDNA) or bulk samples, or detections made via methods like qPCR or ddPCR.
 
-Publishing DNA-derived data through platforms like GBIF and OBIS is crucial because it allows these data to be **discoverable, accessible, interoperable, and reusable** alongside other types of biodiversity information, such as museum specimens or field observations. This integration helps to document taxon occurrences, even for organisms that are difficult to observe physically. By standardizing the reporting of DNA-derived occurrences, regardless of whether the detected species have formal scientific names, the data becomes more **reproducible and comparable**. This is particularly important for characterizing occurrences of the vast number of species that remain undescribed. Openly reporting these data increases their **citability**, highlights taxa relevant for conservation, and contributes to taxonomic and ecological knowledge.
+Publishing DNA-derived data through platforms like GBIF ensures that the data is discoverable, accessible, interoperable, and reusable alongside other biodiversity information, such as museum specimens or field observations. This integration helps document taxon occurrences, even for organisms that are difficult to observe physically. Standardizing the reporting of DNA-derived occurrences, regardless of whether the species are formally named, enhances the reproducibility and comparability of the data, which is crucial for documenting the many undescribed species. Open access to these data also boosts their citability, aids conservation efforts, and contributes to both taxonomic and ecological knowledge.
 
 The extension helps to capture detailed information about the **sampling, processing, and bioinformatic methods** used to generate the DNA data. This metadata is essential for users accessing the data to understand how it was produced and evaluate its reliability.
 
@@ -94,11 +94,3 @@ For **qPCR/ddPCR** data (Category III), many of the fields related to PCR and en
 ### Handling Unknown Sequences
 
 Even sequences that cannot be fully characterized or assigned to a known taxon should be recorded. For unknown sequences, it is required to populate the `scientificName` field with "**Incertae sedis**" or the lowest known taxonomic rank. The `scientificNameID` should be populated accordingly; for Incertae sedis, it should be `urn:lsid:marinespecies.org:taxname:12` for OBIS data. It is also recommended to use `verbatimIdentification` for the originally documented name. Crucially, **all sequences, including uncharacterized ones, should be recorded** in the `DNA_sequence` field to allow for future identification as reference databases improve.
-
-### Publishing the Data
-
-Once the data tables are formatted and mapped, they are typically published through an IPT (Integrated Publishing Toolkit). This involves uploading the source files, mapping them to the Darwin Core Occurrence core terms, and then mapping to the DNA Derived Data extension terms. The extension must first be installed by the IPT administrator.
-
-While the Darwin Core Archive (DwC-A) with the Occurrence core and extensions is the current standard, the structure for publishing DNA-derived data may evolve to better handle the hierarchical nature of samples and occurrences derived from a single event. Regardless of format, publishing DNA-derived data makes it available through biodiversity data platforms, often with a **Digital Object Identifier (DOI)**, which facilitates data citation and credits data originators.
-
-In summary, the DwC DNA Derived Data extension provides a structured framework for standardizing and publishing diverse types of DNA-based biodiversity data, ensuring they can be effectively discovered, integrated, and reused by the wider scientific community.
