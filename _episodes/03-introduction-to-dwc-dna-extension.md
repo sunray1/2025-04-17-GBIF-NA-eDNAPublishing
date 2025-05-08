@@ -21,9 +21,16 @@ math: true
 
 ## What is the Darwin Core DNA Derived Data Extension?
 
-The DNA Derived Data extension is a structured set of terms designed to capture information related to DNA sampling, processing, and bioinformatic methods. It incorporates terms from established genomic data standards, including Minimum Information about any (x) Sequence (MIxS), Genomic Standards Consortium (GSC), Genomic Biodiversity Working Group (GGBN), and Minimum Information for Publication of Quantitative Real-Time PCR Experiments (MIQE) guidelines for qPCR and ddPCR data.
+The **DNA Derived Data** extension is a structured set of terms designed to capture information related to DNA sampling, processing, and bioinformatic methods. It incorporates terms from established genomic data standards, including Minimum Information about any (x) Sequence (MIxS), Genomic Standards Consortium (GSC), Genomic Biodiversity Working Group (GGBN), and Minimum Information for Publication of Quantitative Real-Time PCR Experiments (MIQE) guidelines for qPCR and ddPCR data.
 
-Its **purpose** is to facilitate the publication of DNA-derived occurrence data through biodiversity data platforms such as GBIF and OBIS. By providing a standardized way to describe this type of data, the extension increases its usability beyond its original molecular ecology or phylogenetic context and allows it to be linked with other forms of biodiversity data, including museum specimens and field surveys. This contributes to a more complete and discoverable digital picture of nature. Making DNA-derived data accessible helps support large-scale data-intensive research, management, and policy by making otherwise difficult-to-observe biodiversity discoverable and reusable.
+Its purpose is to facilitate the publication of DNA related to occurrence data through biodiversity data platforms. By providing a standardized way to describe this type of data, the extension increases its usability beyond its original molecular ecology or phylogenetic context and allows it to be linked with other forms of biodiversity data, including museum specimens and field surveys.
+
+> ## Introduction to Darwin Core
+>
+> Need a quick refresher on Darwin Core?  
+> [Check out this nice introduction.](https://dimevil.github.io/croment/19-introduction-darwin-core/index.html)
+>
+{: .prereq}
 
 ## History of the Extension
 
