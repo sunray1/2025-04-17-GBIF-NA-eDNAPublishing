@@ -154,4 +154,4 @@ Manual transformations are error-prone and hard to reproduce. A scripted workflo
 > A full example workflow for eDNA data is available [here](https://sunray1.github.io/PublishingSimoesetalOBIS/).
 > See also [Reyserhove et al. 2020](https://doi.org/10.1093/database/baaa084) for a published checklist recipe for creating a reproducible workflow.
 >
-{: .objectives}
+{: .callout}
