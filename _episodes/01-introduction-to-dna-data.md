@@ -1,7 +1,7 @@
 ---
 layout: episode
 title: "Introduction to DNA Data"
-teaching: 90
+teaching: 45
 exercises: 0
 questions:
 - "Where can I find examples of DNA-derived data being published?"

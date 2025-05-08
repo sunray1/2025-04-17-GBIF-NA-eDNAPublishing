@@ -1,6 +1,6 @@
 ---
 title: "Dataset Mapping"
-teaching: 30
+teaching: 60
 exercises: 60
 questions:
 - "How do I map a DNA dataset to Darwin Core?"

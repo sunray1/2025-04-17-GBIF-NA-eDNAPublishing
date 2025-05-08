@@ -1,6 +1,6 @@
 ---
 title: "Example Datasets"
-teaching: 10
+teaching: 30
 exercises: 0
 questions:
 - "What datasets can I look to as examples of how to format and publish my data?"
