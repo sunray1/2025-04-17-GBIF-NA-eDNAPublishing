@@ -25,6 +25,8 @@ The **DNA Derived Data** extension is a structured set of terms designed to capt
 
 Its purpose is to facilitate the publication of DNA related to occurrence data through biodiversity data platforms. By providing a standardized way to describe this type of data, the extension increases its usability beyond its original molecular ecology or phylogenetic context and allows it to be linked with other forms of biodiversity data, including museum specimens and field surveys.
 
+The extension includes many fields that support methodological transparency and lab reproducibility. These fields allow users to report key experimental details such as `contaminationAssessment`, `concentration`, `annealingTemp`, `pcr_analysis_software`, and other parameters relevant to PCR conditions, quantification protocols, and data processing pipelines. This level of detail helps ensure that DNA-derived occurrence data can be interpreted, compared, and reused with confidence across studies and platforms.
+
 > ## Introduction to Darwin Core
 >
 > Need a quick refresher on Darwin Core?  
