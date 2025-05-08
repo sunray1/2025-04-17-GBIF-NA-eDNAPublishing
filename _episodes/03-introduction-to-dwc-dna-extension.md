@@ -21,7 +21,7 @@ math: true
 
 ## What is the Darwin Core DNA Derived Data Extension?
 
-The **DNA Derived Data** extension is a structured set of terms designed to capture information related to DNA sampling, processing, and bioinformatic methods. It incorporates terms from established genomic data standards, including Minimum Information about any (x) Sequence (MIxS), Genomic Standards Consortium (GSC), Genomic Biodiversity Working Group (GGBN), and Minimum Information for Publication of Quantitative Real-Time PCR Experiments (MIQE) guidelines for qPCR and ddPCR data.
+The **DNA Derived Data** extension is a structured set of terms designed to capture information related to DNA sampling, processing, and bioinformatic methods. It incorporates terms from established genomic data standards, including Minimum Information about any (x) Sequence (MIxS), Genomic Standards Consortium (GSC), Global Genome Biodiversity Network (GGBN), and Minimum Information for Publication of Quantitative Real-Time PCR Experiments (MIQE) guidelines for qPCR and ddPCR data.
 
 Its purpose is to facilitate the publication of DNA related to occurrence data through biodiversity data platforms. By providing a standardized way to describe this type of data, the extension increases its usability beyond its original molecular ecology or phylogenetic context and allows it to be linked with other forms of biodiversity data, including museum specimens and field surveys.
 
@@ -75,42 +75,68 @@ The extension is designed to handle data derived from both individual organisms 
 
 ## General Approach to Using the Extension
 
-Publishing DNA-derived data through platforms like GBIF and OBIS involves standardizing your dataset using Darwin Core terms and the DNA Derived Data extension. The widely used format for this is the Darwin Core Archive (DwC-A).
+1. Initial Checks
 
-Here's a general overview of the process, keeping in mind your familiarity with Darwin Core and specimen data:
+    Before beginning the process of mapping your data, it is important to have a critical look at your dataset. Ask yourself the following questions to assess its readiness and plan your workflow:
 
-1.  **Data Preparation:** Your raw data, often stored in multiple files (like sequence tables, taxonomy tables, sample information, and sequences), needs to be combined into a single "long format" table where **each row represents a unique sequence-by-sample combination, considered as one occurrence**. For qPCR/ddPCR, each row might represent a targeted detection (or non-detection) for a specific species in a sample.
-2.  **Darwin Core Mapping:** You will map the columns in your combined data table to appropriate Darwin Core terms. The current recommendation is to publish DNA-derived data using the **Occurrence core**. Even if your data comes from a single sampling event with many detected sequences, you map these to Occurrence records. This is because the DwC-A structure makes it easiest to link occurrence-specific information, like the DNA sequence, using extensions. You should include an `eventID` for each Occurrence record to indicate which sampling event the occurrence came from.
-3.  **Populating the Occurrence Core:** Beyond the standard required terms for Occurrence datasets, you should consider adding specific fields highly relevant to DNA data. Examples include:
-    *   `basisOfRecord`: Use "MaterialSample" for DNA-derived occurrences. If the DNA is linked to a specimen, use "PreservedSpecimen" or "LivingSpecimen".
-    *   `organismQuantity` and `OrganismQuantityType`: For sequencing data, `organismQuantity` is the number of reads for a specific sequence, and `OrganismQuantityType` is "DNA sequence reads". These represent *relative* abundance within the sample. For ddPCR, `organismQuantity` is the number of positive partitions, and `OrganismQuantityType` is the partition type (e.g., "ddPCR droplets"). For qPCR, it might be the number of gene copies.
-    *   `sampleSizeValue` and `sampleSizeUnit`: For sequencing data, `sampleSizeValue` is the total reads in the sample, and `sampleSizeUnit` is "DNA sequence reads". These are needed to calculate relative abundance. For ddPCR, `sampleSizeValue` is the number of accepted partitions. For qPCR, these fields are typically not used for copy numbers.
-    *   `associatedSequences`: Provide links or identifiers to where the raw sequence information can be found in public archives.
-    *   `materialSampleID`: An identifier for the physical or environmental sample the DNA came from. Use a Biosample ID from a nucleotide archive if available.
-    *   `samplingProtocol`: Describes the method used to collect the sample.
-    *   `identificationRemarks`: Details on the taxonomic identification process, including the algorithm, reference database used, and confidence level.
-    *   `identificationReferences`: Links to the bioinformatic pipeline or publication explaining the identification.
-    *   `taxonConceptID`: Can store identifiers from non-Linnean reference databases like BOLD BINs or UNITE SHs.
-    *   `verbatimIdentification`: Record the original name documented for the sequence, especially if it's not a standard scientific name.
-4.  **Populating the DNA Derived Data Extension:** This is where you add details specific to the DNA processing. Key fields in the extension include:
-    *   `DNA_sequence`: **Crucially, for sequencing data, this field contains the actual Amplicon Sequence Variant (ASV) or Operational Taxonomic Unit (OTU) sequence**. This allows future users to re-analyze or compare sequences as reference databases improve. *This field is not used for qPCR/ddPCR data*.
-    *   `sop`: Reference to standard operating procedures for sample processing or bioinformatic methods, ideally a link to a documented protocol.
-    *   `target_gene` and `target_subfragment`: Specify the genetic region targeted by the primers (e.g., 16S rRNA, 18S V9 region).
-    *   `pcr_primer_forward`, `pcr_primer_reverse`, `pcr_primer_name_forward`, `pcr_primer_name_reverse`, `pcr_primer_reference`: Details about the PCR primers used.
-    *   `Pcr_cond`, `annealingTemp`: Details about the PCR conditions.
-    *   `ampliconSize`: Size of the amplified DNA fragment.
-    *   `env_broad_scale`, `env_local_scale`, `env_medium`: Description of the environmental context of the sample, ideally using terms from ontologies like Environment Ontology (ENVO).
-    *   `seq_meth`: Sequencing technology used (e.g., Illumina MiSeq).
-    *   `otu_class_appr`, `otu_seq_comp_appr`, `otu_db`: Details about the bioinformatic methods and reference databases used for taxonomic assignment.
-    *   For qPCR/ddPCR data, additional fields related to DNA concentration, PCR reaction volumes, quantification cycles, and quality metrics (`concentration`, `ratioOfAbsorbance260_230`, etc.) are available and recommended.
-5.  **Handling Unknown Sequences:** It's common for DNA studies to find sequences that don't match entries in current reference databases. It is important to publish these sequences as well, as they represent real biodiversity that may be identified later. For such uncharacterized sequences:
-    *   Set `scientificName` to "Incertae sedis" or the lowest known taxonomic rank.
-    *   For "Incertae sedis", set `scientificNameID` to the specific WoRMS LSID: urn:lsid:marinespecies.org:taxname:12. If a different low rank is used, find the corresponding `scientificNameID`.
-    *   Use `verbatimIdentification` to record any original name or description available (e.g., "phototrophic eukaryote").
-6.  **Using Identifiers:** Leverage global identifiers whenever possible. This includes DOIs for datasets and publications, Biosample IDs from public nucleotide archives (NCBI SRA, EMBL ENA, DDBJ) for `materialSampleID`, and potentially MD5 checksums of sequences if the full sequence isn't provided. OBIS emphasizes using WoRMS identifiers for `scientificNameID` to maintain a consistent taxonomic backbone.
+    - Is the data well **organized** and **comprehensible**? Genetic data often originates from multiple files like an OTU-table, a taxonomy table, a sample information table, and a .fasta file. You will need to understand how these relate and if they contain the necessary information (sequence and possible taxonomy for each occurrence record, sample metadata).
+    - Is this **suitable** for GBIF publication?
+    - Is everything crystal clear for you? Do you understand the different components of your raw data (e.g., what the "OTU-table" columns represent, how sequences link to taxonomy)?.
+    - Do you have the necessary metadata? 
+    - Does the data need to be cleaned?
+    - Does the data need to be amended or annotated with additional fields?
+    - Does the data need to be reorganized or restructured? Genetic data from multiple files (OTU, taxonomy, sample info) needs to be combined into a "long format" table, where each unique sequence by sample combination is a single row (occurrence). This is crucial for mapping to the DwC standard.
 
-## Relationship to Raw Sequence Data
+2. Decide how your final dataset will be generally structured.
 
-Biodiversity data platforms like GBIF and OBIS are not intended to be archives for raw sequence reads. Community expectation is that primary genomic data (raw reads) are first shared through established repositories like the International Nucleotide Sequence Database Collaboration (INSDC) (NCBI SRA, EMBL ENA, DDBJ).
+    Datasets can be translated in many ways - you will find with particularly complicated datasets, there may be multiple, valid ways of mapping the data.
 
-The DwC DNA Derived Data extension helps link the processed occurrence data (like the ASV/OTU sequence and its taxonomic assignment) to the original raw data by using identifiers and links in fields like `associatedSequences` and `materialSampleID` (using Biosample IDs). This ensures that users of the biodiversity platform can trace the data back to its source if needed.
+    - Will the dataset be flat or relational? Using an extension, by definition, causes a dataset to become relational.
+    - Which Core element (Occurrence, Checklist or Event) is the most suitable? Currently, genetic data must be published with the Occurrence core, not the Event core. Note that a new data model is being developed which may change this in the future.
+    - Which Extensions are suitable for this dataset? For DNA data, the DNA Derived Data extension is essential. An extendedMeasurementsOrFact (eMoF) extension is also often used for environmental measurements or other facts associated with the sample.
+    - Do you have all necessary identifiers needed to link your tables? You might need to generate unique, persistent identifiers if they don't already exist.
+
+3. Categorize Your Data
+
+    The GBIF reference guide contains recommended fields and suggestions for mapping different types of DNA data. For a guide and decision tree on determining which category your data falls into, see the [Categorization of your data](https://docs.gbif.org/publishing-dna-derived-data/en/#categorization-of-your-data) section.
+    
+4. Reformat your data (optional)
+
+    Genetic data is often recorded in multiple different files, and this might be the type of format received from data providers. Important data tables can include: an OTU-table, a taxonomy table, a sample information table, and a .fasta file with sequences. The OTU-table is a sequence by sample table, which records the quantity of each unique sequence found in each sample. Sequences are usually referred to by an ID, which is unique only in the dataset (e.g. asv1, asv2, asv3 …). The taxonomy table is a sequence by taxonomy table, which records the taxonomy linked to each unique sequence, as defined by the annotation method. The sample information table records the metadata of each sample (e.g. location, time, and collection method). Finally the .fasta file records the actual DNA sequence that is linked to each sequence id.
+
+    Although this data is in multiple files, each unique sequence by sample combination is considered one occurrence. Therefore the data from these tables can formatted to the “long format”, including a row for each sequence in each sample. This is an optional step, but may help with mapping to DwC.
+    
+    ![Venn Diagram showing how BOLD, GenBank and GBIF records overlap.]({{ page.root }}/fig/DNA_4tables-to-one.jpg)
+
+5. Conceptually Map Your Data
+
+      Before diving into the technical work of restructuring your files, take time to **conceptually map** your data — that is, understand how each field in your raw files will be translated into Darwin Core (DwC) terms. This step helps prevent errors and saves time by giving you a clear plan for transformation.
+      
+      - Review your raw data tables (e.g., OTU-table, taxonomy table, sample metadata, FASTA file) and make a list of all fields present.
+      - Next, identify which **DwC terms** best represent each of these fields. For example:
+        - Taxonomic assignment → `scientificName`, `taxonRank`, `identificationRemarks`
+        - Sample metadata → `eventDate`, `decimalLatitude`, `decimalLongitude`, `samplingProtocol`
+        - DNA sequence → `DNA_sequence` (in the DNA Derived Data extension)
+      - Consider relationships between tables. Use identifiers like `occurrenceID`, `materialSampleID`, and `eventID` to **link** records across your Occurrence Core and extensions. You may have to create your own identifiers.
+      - Reference the [GBIF mapping guide](https://docs.gbif.org/publishing-dna-derived-data/en/#data-mapping) to see how others have mapped similar data types.
+
+6. Map Your Data
+
+    Once you’ve conceptually mapped your fields, the next step is to **transform your data** into DwC-compliant tables. This is where the actual work of data wrangling happens.
+    
+    Instead of manually editing files, aim to build a **scripted workflow** that can:
+    
+    - Import your original data tables (e.g., CSVs, TSVs, FASTA files)
+    - Merge and reshape them into DwC-compliant long-format tables
+    - Add or derive required fields (e.g., generate unique `occurrenceID`s)
+    - Export the result as `.txt` or `.csv` files suitable for DwC publication
+    
+    Manual transformations are error-prone and hard to reproduce. A scripted workflow using **open-source tools** like R or Python ensures:
+    
+    - **Reproducibility**: You can re-run the script when you receive new data or need to update something.
+    - **Transparency**: Others (or future you) can see exactly how the data was transformed.
+    - **Scalability**: Scripts handle large datasets more easily than spreadsheets.
+
+- See [this list of R Notebooks](https://iobis.github.io/mwhs-data-mobilization/) for examples of these scripts.
+- A full example workflow for eDNA data is available [here](https://sunray1.github.io/PublishingSimoesetalOBIS/).
+- See also [a checklist recipe](https://doi.org/10.1093/database/baaa084) for a published workflow.
