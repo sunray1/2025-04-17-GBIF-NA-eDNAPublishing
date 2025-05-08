@@ -84,7 +84,7 @@ Yes—at least in part. The relationships between **BOLD**, **GenBank**, and **G
 - **GenBank**: Stores a wide variety of DNA sequence data, including records submitted from BOLD. However, data is not automatically shared outward from GenBank, nor is it typically ingested by BOLD or GBIF.
 - **GBIF**: Ingests all publicly available data from BOLD and makes it accessible as part of global biodiversity occurrence data.
 
-> ## Record Distribution Across Platforms
+> ## Same Record, Different Platforms
 >
 > To see how the same DNA record can be distributed across platforms, explore this example:
 > - [BOLD record](https://portal.boldsystems.org/record/ABMMC131-06)
