@@ -29,8 +29,7 @@ The extension includes many fields that support methodological transparency and 
 
 > ## Introduction to Darwin Core
 >
-> Need a quick refresher on Darwin Core?  
-> [Check out this nice introduction.](https://dimevil.github.io/croment/19-introduction-darwin-core/index.html)
+> Need a quick refresher on Darwin Core? [Check out this nice introduction.](https://dimevil.github.io/croment/19-introduction-darwin-core/index.html)
 >
 {: .prereq}
 
