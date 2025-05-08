@@ -77,65 +77,65 @@ The extension is designed to handle data derived from both individual organisms 
 
 ### 1. Initial Checks
 
-    Before beginning the process of mapping your data, it is important to have a critical look at your dataset. Ask yourself the following questions to assess its readiness and plan your workflow:
+Before beginning the process of mapping your data, it is important to have a critical look at your dataset. Ask yourself the following questions to assess its readiness and plan your workflow:
 
-    - Is the data well **organized** and **comprehensible**? Genetic data often originates from multiple files like an OTU-table, a taxonomy table, a sample information table, and a .fasta file. You will need to understand how these relate and if they contain the necessary information (sequence and possible taxonomy for each occurrence record, sample metadata).
-    - Is this **suitable** for GBIF publication?
-    - Is everything crystal clear for you? Do you understand the different components of your raw data (e.g., what the "OTU-table" columns represent, how sequences link to taxonomy)?.
-    - Do you have the necessary metadata? 
-    - Does the data need to be cleaned?
-    - Does the data need to be amended or annotated with additional fields?
-    - Does the data need to be reorganized or restructured? Genetic data from multiple files (OTU, taxonomy, sample info) needs to be combined into a "long format" table, where each unique sequence by sample combination is a single row (occurrence). This is crucial for mapping to the DwC standard.
+- Is the data well **organized** and **comprehensible**? Genetic data often originates from multiple files like an OTU-table, a taxonomy table, a sample information table, and a .fasta file. You will need to understand how these relate and if they contain the necessary information (sequence and possible taxonomy for each occurrence record, sample metadata).
+- Is this **suitable** for GBIF publication?
+- Is everything crystal clear for you? Do you understand the different components of your raw data (e.g., what the "OTU-table" columns represent, how sequences link to taxonomy)?.
+- Do you have the necessary metadata? 
+- Does the data need to be cleaned?
+- Does the data need to be amended or annotated with additional fields?
+- Does the data need to be reorganized or restructured? Genetic data from multiple files (OTU, taxonomy, sample info) needs to be combined into a "long format" table, where each unique sequence by sample combination is a single row (occurrence). This is crucial for mapping to the DwC standard.
 
 ### 2. Decide how your final dataset will be generally structured.
 
-    Datasets can be translated in many ways - you will find with particularly complicated datasets, there may be multiple, valid ways of mapping the data.
+Datasets can be translated in many ways - you will find with particularly complicated datasets, there may be multiple, valid ways of mapping the data.
 
-    - Will the dataset be flat or relational? Using an extension, by definition, causes a dataset to become relational.
-    - Which Core element (Occurrence, Checklist or Event) is the most suitable? Currently, genetic data must be published with the Occurrence core, not the Event core. Note that a new data model is being developed which may change this in the future.
-    - Which Extensions are suitable for this dataset? For DNA data, the DNA Derived Data extension is essential. An extendedMeasurementsOrFact (eMoF) extension is also often used for environmental measurements or other facts associated with the sample.
-    - Do you have all necessary identifiers needed to link your tables? You might need to generate unique, persistent identifiers if they don't already exist.
+- Will the dataset be flat or relational? Using an extension, by definition, causes a dataset to become relational.
+- Which Core element (Occurrence, Checklist or Event) is the most suitable? Currently, genetic data must be published with the Occurrence core, not the Event core. Note that a new data model is being developed which may change this in the future.
+- Which Extensions are suitable for this dataset? For DNA data, the DNA Derived Data extension is essential. An extendedMeasurementsOrFact (eMoF) extension is also often used for environmental measurements or other facts associated with the sample.
+- Do you have all necessary identifiers needed to link your tables? You might need to generate unique, persistent identifiers if they don't already exist.
 
 ### 3. Categorize Your Data
 
-    The GBIF reference guide contains recommended fields and suggestions for mapping different types of DNA data. For a guide and decision tree on determining which category your data falls into, see the [Categorization of your data](https://docs.gbif.org/publishing-dna-derived-data/en/#categorization-of-your-data) section.
+The GBIF reference guide contains recommended fields and suggestions for mapping different types of DNA data. For a guide and decision tree on determining which category your data falls into, see the [Categorization of your data](https://docs.gbif.org/publishing-dna-derived-data/en/#categorization-of-your-data) section.
     
 ### 4. Reformat your data (optional)
 
-    Genetic data is often recorded in multiple different files, and this might be the type of format received from data providers. Important data tables can include: an OTU-table, a taxonomy table, a sample information table, and a .fasta file with sequences. The OTU-table is a sequence by sample table, which records the quantity of each unique sequence found in each sample. Sequences are usually referred to by an ID, which is unique only in the dataset (e.g. asv1, asv2, asv3 …). The taxonomy table is a sequence by taxonomy table, which records the taxonomy linked to each unique sequence, as defined by the annotation method. The sample information table records the metadata of each sample (e.g. location, time, and collection method). Finally the .fasta file records the actual DNA sequence that is linked to each sequence id.
+Genetic data is often recorded in multiple different files, and this might be the type of format received from data providers. Important data tables can include: an OTU-table, a taxonomy table, a sample information table, and a .fasta file with sequences. The OTU-table is a sequence by sample table, which records the quantity of each unique sequence found in each sample. Sequences are usually referred to by an ID, which is unique only in the dataset (e.g. asv1, asv2, asv3 …). The taxonomy table is a sequence by taxonomy table, which records the taxonomy linked to each unique sequence, as defined by the annotation method. The sample information table records the metadata of each sample (e.g. location, time, and collection method). Finally the .fasta file records the actual DNA sequence that is linked to each sequence id.
 
-    Although this data is in multiple files, each unique sequence by sample combination is considered one occurrence. Therefore the data from these tables can formatted to the “long format”, including a row for each sequence in each sample. This is an optional step, but may help with mapping to DwC.
-    
-    ![Venn Diagram showing how BOLD, GenBank and GBIF records overlap.]({{ page.root }}/fig/DNA_4tables-to-one.jpg)
+Although this data is in multiple files, each unique sequence by sample combination is considered one occurrence. Therefore the data from these tables can formatted to the “long format”, including a row for each sequence in each sample. This is an optional step, but may help with mapping to DwC.
+
+![Venn Diagram showing how BOLD, GenBank and GBIF records overlap.]({{ page.root }}/fig/DNA_4tables-to-one.jpg)
 
 ### 5. Conceptually Map Your Data
 
-      Before diving into the technical work of restructuring your files, take time to **conceptually map** your data — that is, understand how each field in your raw files will be translated into Darwin Core (DwC) terms. This step helps prevent errors and saves time by giving you a clear plan for transformation.
-      
-      - Review your raw data tables (e.g., OTU-table, taxonomy table, sample metadata, FASTA file) and make a list of all fields present.
-      - Next, identify which **DwC terms** best represent each of these fields. For example:
-        - Taxonomic assignment → `scientificName`, `taxonRank`, `identificationRemarks`
-        - Sample metadata → `eventDate`, `decimalLatitude`, `decimalLongitude`, `samplingProtocol`
-        - DNA sequence → `DNA_sequence` (in the DNA Derived Data extension)
-      - Consider relationships between tables. Use identifiers like `occurrenceID`, `materialSampleID`, and `eventID` to **link** records across your Occurrence Core and extensions. You may have to create your own identifiers.
-      - Reference the [GBIF mapping guide](https://docs.gbif.org/publishing-dna-derived-data/en/#data-mapping) to see how others have mapped similar data types.
+Before diving into the technical work of restructuring your files, take time to **conceptually map** your data — that is, understand how each field in your raw files will be translated into Darwin Core (DwC) terms. This step helps prevent errors and saves time by giving you a clear plan for transformation.
+
+- Review your raw data tables (e.g., OTU-table, taxonomy table, sample metadata, FASTA file) and make a list of all fields present.
+- Next, identify which **DwC terms** best represent each of these fields. For example:
+  - Taxonomic assignment → `scientificName`, `taxonRank`, `identificationRemarks`
+  - Sample metadata → `eventDate`, `decimalLatitude`, `decimalLongitude`, `samplingProtocol`
+  - DNA sequence → `DNA_sequence` (in the DNA Derived Data extension)
+- Consider relationships between tables. Use identifiers like `occurrenceID`, `materialSampleID`, and `eventID` to **link** records across your Occurrence Core and extensions. You may have to create your own identifiers.
+- Reference the [GBIF mapping guide](https://docs.gbif.org/publishing-dna-derived-data/en/#data-mapping) to see how others have mapped similar data types.
 
 ### 6. Map Your Data
 
-    Once you’ve conceptually mapped your fields, the next step is to **transform your data** into DwC-compliant tables. This is where the actual work of data wrangling happens.
-    
-    Instead of manually editing files, aim to build a **scripted workflow** that can:
-    
-    - Import your original data tables (e.g., CSVs, TSVs, FASTA files)
-    - Merge and reshape them into DwC-compliant long-format tables
-    - Add or derive required fields (e.g., generate unique `occurrenceID`s)
-    - Export the result as `.txt` or `.csv` files suitable for DwC publication
-    
-    Manual transformations are error-prone and hard to reproduce. A scripted workflow using **open-source tools** like R or Python ensures:
-    
-    - **Reproducibility**: You can re-run the script when you receive new data or need to update something.
-    - **Transparency**: Others (or future you) can see exactly how the data was transformed.
-    - **Scalability**: Scripts handle large datasets more easily than spreadsheets.
+Once you’ve conceptually mapped your fields, the next step is to **transform your data** into DwC-compliant tables. This is where the actual work of data wrangling happens.
+
+Instead of manually editing files, aim to build a **scripted workflow** that can:
+
+- Import your original data tables (e.g., CSVs, TSVs, FASTA files)
+- Merge and reshape them into DwC-compliant long-format tables
+- Add or derive required fields (e.g., generate unique `occurrenceID`s)
+- Export the result as `.txt` or `.csv` files suitable for DwC publication
+
+Manual transformations are error-prone and hard to reproduce. A scripted workflow using **open-source tools** like R or Python ensures:
+
+- **Reproducibility**: You can re-run the script when you receive new data or need to update something.
+- **Transparency**: Others (or future you) can see exactly how the data was transformed.
+- **Scalability**: Scripts handle large datasets more easily than spreadsheets.
 
 > ## Examples and Resources
 >
