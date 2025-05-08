@@ -35,7 +35,7 @@ The Integrated Publishing Toolkit (IPT) is an open source web application that h
 > ## No!
 >
 >
-> The IPT **cannot handle**: raw sequencing data (e.g Fastq files), OTU tables in a community matrix format or FASTA files. This is because it is a general tool for producing DwC-A. The MDT (described below) is more appropriate for wrangling and publishing typical outputs from metabarcoding studies.
+> The IPT **cannot handle**: raw sequencing data (e.g Fastq files), OTU tables in a community matrix format or FASTA files. This is because it is a general tool for producing a DwC-A. The MDT (described below) is more appropriate for wrangling and publishing typical outputs from metabarcoding studies.
 >
 {: .caution}
 
@@ -55,15 +55,14 @@ There are a variety of tools you might use to wrangle your data, including [Open
 
 ### Example Dataset
 
-- IPT Example Dataset: *Link TBD*
-
-We will use an example dataset to demo the IPT. It is a slightly modified verion of real dataset with COI metabarcoding of DNA extracted from sea water. The dataset has rich metadata and is a good example of a well-documented dataset.  This data was originally published as:
+We will demo the IPT with the same example dataset we provided in the previous example, however we have already taken the time to split it into a table of occurrence terms and one of DNA terms. It is a slightly modified verion of a real dataset with COI metabarcoding of DNA extracted from sea water. The dataset has rich metadata and is a good example of a well-documented dataset.  This data was originally published as:
 
 > Shea M M, Boehm A B (2024). COI data from: Environmental DNA metabarcoding differentiates between micro-habitats within the rocky intertidal (Shea & Boehm, 2024). Version 1.5. United States Geological Survey. Occurrence dataset. https://ipt-obis.gbif.us/resource?r=shea_boehm_2024&v=1.5 https://doi.org/10.15468/33artc accessed via GBIF.org on 2025-05-07.
 
-You can download the files: 
-- Download file: [Example Dataset 2](https://docs.gbif-uat.org/mdt-user-guide/example_data/example_data2.current.en.xlsx).
+You can download the files here: 
 
+- <https://sunray1.github.io/2025-05-09-GBIF-NA-DNAPublishing/files/DNA_example_2_for_IPT_occ.csv.zip>
+- <https://sunray1.github.io/2025-05-09-GBIF-NA-DNAPublishing/files/DNA_example_2_for_IPT_dna.csv.zip>
 
 
 ## The Metabarcoding Data Toolkit (MDT)
@@ -122,6 +121,8 @@ We will use the example dataset provided in the MDT User Guide to demo the MDT. 
 
 - Download file: [Example Dataset 2](https://docs.gbif-uat.org/mdt-user-guide/example_data/example_data2.current.en.xlsx).
 
+
+https://docs.gbif-uat.org/mdt-user-guide/example_data/example_data2current.en.xlsx
 
 ### Demo
 *We're doing a live demo, but this recording of a previous demo by GBIF will be here for future reference:*

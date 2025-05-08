@@ -11,6 +11,9 @@ keypoints:
 math: true
 ---
 
+
+# Datasets From Course
+
 ## Museum Specimen + DNA extension
 
 - Dataset Link: <https://www.gbif.org/dataset/040c5662-da76-4782-a48e-cdea1892d14c>
@@ -42,3 +45,11 @@ math: true
 - Dataset Link: <https://www.gbif.org/dataset/66da3373-5cca-4d00-a477-af751b5ed052>
 
 - Example Occurrence: <https://www.gbif.org/occurrence/4951988498>
+
+# Bonus Examples!
+
+- GitHub repo: <https://github.com/iobis/mwhs-data-mobilization>
+
+*Chandra Earl mobilized about 50 datasets for OBIS using R. The individual R notebooks can be explored here: <https://iobis.github.io/mwhs-data-mobilization/>. The related paper is:
+
+> Lien Reyserhove, Peter Desmet, Damiano Oldoni, Tim Adriaens, Diederik Strubbe, Amy J S Davis, Sonia Vanderhoeven, Filip Verloove, Quentin Groom, A checklist recipe: making species data open and FAIR, Database, Volume 2020, 2020, baaa084, https://doi.org/10.1093/database/baaa084
