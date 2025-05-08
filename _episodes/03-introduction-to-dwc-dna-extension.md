@@ -103,7 +103,7 @@ Datasets can be translated in many ways - you will find with particularly compli
 > ## Available Cores and Extensions
 >
 > See GBIF's [Registered Extensions](https://rs.gbif.org/extensions.html) for the list of registered extensions available for publication in GBIF. 
-> *Remember, just because a standard may be maintained in [TDWG](https://www.tdwg.org/), does NOT mean it is available for use in GBIF or other platforms.*
+> *Remember, just because a standard is maintained in [TDWG](https://www.tdwg.org/), does NOT mean it is available for use in GBIF or in other platforms.*
 >
 {: .callout}
 
@@ -150,8 +150,8 @@ Manual transformations are error-prone and hard to reproduce. A scripted workflo
 
 > ## Examples and Resources
 >
-> See [this list of R Notebooks](https://iobis.github.io/mwhs-data-mobilization/) for examples of these scripts.
-> A full example workflow for eDNA data is available [here](https://sunray1.github.io/PublishingSimoesetalOBIS/).
-> See also [Reyserhove et al. 2020](https://doi.org/10.1093/database/baaa084) for a published checklist recipe for creating a reproducible workflow.
+> - See [this list of R Notebooks](https://iobis.github.io/mwhs-data-mobilization/) for examples of these scripts.
+> - A full example workflow for eDNA data is available [here](https://sunray1.github.io/PublishingSimoesetalOBIS/).
+> - See also [Reyserhove et al. 2020](https://doi.org/10.1093/database/baaa084) for a published checklist recipe for creating a reproducible workflow.
 >
 {: .callout}
