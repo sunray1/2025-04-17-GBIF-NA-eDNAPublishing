@@ -71,10 +71,14 @@ The extension is designed to handle data derived from both individual organisms 
 >
 {: .objectives}
 
-> ## Familiarize yourself
+> ## Challenge: Explore the Extension
 >
-> Take ~10 minutes or so to familiarize yourself with the [fields](https://rs.gbif.org/extension/gbif/1.0/dna_derived_data_2024-07-11.xml) in the extension or take a look at some [occurrences](https://www.gbif.org/occurrence/search?advanced=1&dwca_extension=http:~2F~2Frs.gbif.org~2Fterms~2F1.0~2FDNADerivedData) published with the extension. Are any of these fields relevant to your data? You'll find most of these fields are methodological, which is not typically shared in raw data - do you know or can get the answers for these fields? Are there any fields you don't understand?
-> 
+> Spend about 10 minutes exploring the [DNA Derived Data extension fields](https://rs.gbif.org/extension/gbif/1.0/dna_derived_data_2024-07-11.xml) or browsing some [occurrence records that use the extension](https://www.gbif.org/occurrence/search?advanced=1&dwca_extension=http:~2F~2Frs.gbif.org~2Fterms~2F1.0~2FDNADerivedData).
+>
+> Which fields seem relevant to your own data? Most fields capture methodological details that often aren’t included in raw datasets—can you provide or obtain this information?
+>
+> Make note of any fields you don’t recognize or fully understand. These could be good candidates for discussion or clarification.
+>
 {: .challenge}
 
 ## General Approach to Using the Extension
