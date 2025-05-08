@@ -82,19 +82,30 @@ Before beginning the process of mapping your data, it is important to have a cri
 - Is the data well **organized** and **comprehensible**? Genetic data often originates from multiple files like an OTU-table, a taxonomy table, a sample information table, and a .fasta file. You will need to understand how these relate and if they contain the necessary information (sequence and possible taxonomy for each occurrence record, sample metadata).
 - Is this **suitable** for GBIF publication?
 - Is everything crystal clear for you? Do you understand the different components of your raw data (e.g., what the "OTU-table" columns represent, how sequences link to taxonomy)?.
-- Do you have the necessary metadata? 
-- Does the data need to be cleaned?
-- Does the data need to be amended or annotated with additional fields?
-- Does the data need to be reorganized or restructured? Genetic data from multiple files (OTU, taxonomy, sample info) needs to be combined into a "long format" table, where each unique sequence by sample combination is a single row (occurrence). This is crucial for mapping to the DwC standard.
+- Do you have the necessary **metadata**? 
+- Does the data need to be **cleaned**?
+
+> ## Metadata Fields
+>
+> See OBIS's [Introduction to the EML metadata standard](https://manual.obis.org/eml.html) for a good primer.
+>
+{: .callout}
 
 ### 2. Decide how your final dataset will be generally structured.
 
 Datasets can be translated in many ways - you will find with particularly complicated datasets, there may be multiple, valid ways of mapping the data.
 
 - Will the dataset be flat or relational? Using an extension, by definition, causes a dataset to become relational.
-- Which Core element (Occurrence, Checklist or Event) is the most suitable? Currently, genetic data must be published with the Occurrence core, not the Event core. Note that a new data model is being developed which may change this in the future.
-- Which Extensions are suitable for this dataset? For DNA data, the DNA Derived Data extension is essential. An extendedMeasurementsOrFact (eMoF) extension is also often used for environmental measurements or other facts associated with the sample.
+- Which Core element (Occurrence, Checklist or Event) is the most suitable? Currently, genetic data must be published with the **Occurrence core**, not the Event core. Note that a new data model is being developed which may change this in the future.
+- Which Extensions are suitable for this dataset? For DNA data, the **DNA Derived Data extension** is essential. An **extendedMeasurementsOrFact (eMoF) extension** is also often used for environmental measurements or other facts associated with the sample.
 - Do you have all necessary identifiers needed to link your tables? You might need to generate unique, persistent identifiers if they don't already exist.
+
+> ## Available Cores and Extensions
+>
+> See GBIF's [Registered Extensions](https://rs.gbif.org/extensions.html) for the list of registered extensions available for publication in GBIF. 
+> *Remember, just because a standard may be maintained in [TDWG](https://www.tdwg.org/), does NOT mean it is available for use in GBIF or other platforms.*
+>
+{: .callout}
 
 ### 3. Categorize Your Data
 
@@ -120,7 +131,7 @@ Before diving into the technical work of restructuring your files, take time to 
 - Consider relationships between tables. Use identifiers like `occurrenceID`, `materialSampleID`, and `eventID` to **link** records across your Occurrence Core and extensions. You may have to create your own identifiers.
 - Reference the [GBIF mapping guide](https://docs.gbif.org/publishing-dna-derived-data/en/#data-mapping) to see how others have mapped similar data types.
 
-### 6. Map Your Data
+### 6. Actually Map Your Data
 
 Once you’ve conceptually mapped your fields, the next step is to **transform your data** into DwC-compliant tables. This is where the actual work of data wrangling happens.
 
@@ -141,10 +152,6 @@ Manual transformations are error-prone and hard to reproduce. A scripted workflo
 >
 > See [this list of R Notebooks](https://iobis.github.io/mwhs-data-mobilization/) for examples of these scripts.
 > A full example workflow for eDNA data is available [here](https://sunray1.github.io/PublishingSimoesetalOBIS/).
-> See also [a checklist recipe](https://doi.org/10.1093/database/baaa084) for a published workflow.
+> See also [Reyserhove et al. 2020](https://doi.org/10.1093/database/baaa084) for a published checklist recipe for creating a reproducible workflow.
 >
 {: .objectives}
-
-- See [this list of R Notebooks](https://iobis.github.io/mwhs-data-mobilization/) for examples of these scripts.
-- A full example workflow for eDNA data is available [here](https://sunray1.github.io/PublishingSimoesetalOBIS/).
-- See also [a checklist recipe](https://doi.org/10.1093/database/baaa084) for a published workflow.
