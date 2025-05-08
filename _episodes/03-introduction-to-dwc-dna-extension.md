@@ -35,7 +35,7 @@ The extension includes many fields that support methodological transparency and 
 
 > ## What **isn't** the DNA Derived Data Extension?
 >
-> The DNA Derived Data extension is not intended for storing raw reads, full-length sequences, genome assemblies, or annotations. While it includes a `DNA_sequence` field, this is meant only for short sequences—typically DNA barcodes under ~500 base pairs. Biodiversity data platforms using this extension are not primary archives for genomic data. Instead, all comprehensive sequence data should be deposited in specialized repositories under the International Nucleotide Sequence Database Collaboration (INSDC), including NCBI's SRA, EMBL's ENA, and DDBJ.
+> The DNA Derived Data extension is not intended for storing raw reads, full-length sequences, genome assemblies, or annotations. While it includes a `DNA_sequence` field, this is meant only for short sequences—typically DNA barcodes under ~500 base pairs. Biodiversity data platforms using this extension are not primary archives for genomic data. Instead, all comprehensive sequence data should be deposited in specialized repositories under the [International Nucleotide Sequence Database Collaboration (INSDC)](https://www.insdc.org/), including NCBI and EMBL.
 >
 {: .caution}
 
@@ -43,7 +43,7 @@ The extension includes many fields that support methodological transparency and 
 >
 > Yes, the Occurrence core includes a field called [`associatedSequences`](https://dwc.tdwg.org/list/#dwc_associatedSequences), part of the MaterialEntity suite of terms. While it *can* be used to reference sequence data, the DNA Derived Data extension is designed to support much more detailed and structured sharing of molecular data.
 >
-{: .caution}
+{: .objectives}
 
 ## History of the Extension
 
@@ -55,15 +55,23 @@ As of now, the extension is in production and actively supported on GBIF and the
 
 ## What Kinds of DNA Data Can It Handle?
 
-The DNA Derived Data extension can be used to standardize occurrence data derived from various molecular methods, including:
+The DNA Derived Data extension can be used to standardize occurrence data derived from a broad range of molecular methods, including:
 
-*   **Environmental DNA (eDNA):** DNA extracted directly from environmental samples (like water, soil, or air) without isolating the source organism.
-*   **Metabarcoding:** Uses universal primers and high-throughput sequencing (HTS / NGS) to amplify and sequence specific DNA markers from a mixed sample, allowing simultaneous identification of multiple organisms. This is a common source of sequence-derived data.
-*   **Barcoding:** Uses short, standardized DNA fragments to identify individual organisms. Datasets where genetic material is associated with an observable specimen often fall into this category.
-*   **Metagenomics:** Sequences all DNA in a sample without targeting specific markers, providing sequence-derived data in the form of gene matches or metagenome-assembled genomes.
-*   **qPCR (Quantitative Polymerase Chain Reaction) / ddPCR (Droplet Digital Polymerase Chain Reaction):** These methods detect the presence (or absence) of a target organism's DNA using species-specific primers. Unlike metabarcoding or barcoding, these methods do not necessarily produce a sequence that is included in the `DNA_sequence` field; the occurrence is based on the detection itself.
+- **Environmental DNA (eDNA):** DNA extracted directly from environmental samples (such as water, soil, or air) without isolating the source organism.
+- **Metabarcoding:** Uses universal primers and high-throughput sequencing (HTS/NGS) to amplify and sequence specific DNA markers from mixed samples, allowing simultaneous identification of multiple taxa.
+- **Barcoding:** Involves sequencing short, standardized DNA fragments to identify individual organisms. Often used when DNA is linked to a physical specimen or observation.
+- **Target capture / hybridization-based enrichment:** Selectively sequences specific genomic regions across many samples, often used in phylogenomics or species delimitation.
+- **Whole-genome sequencing (WGS):** Involves sequencing entire genomes. Though full sequences are not stored in the extension, derived occurrences based on genome assemblies or annotations can be described and linked to external repositories.
+- **SNP (Single Nucleotide Polymorphism) genotyping:** Detects variation at specific genomic loci, commonly used in population genetics or trait association studies. Occurrence records can reflect detections, genotypes, or clustering results.
+- **qPCR / ddPCR (Quantitative / Droplet Digital PCR):** Uses species-specific primers to detect the presence of a target organism's DNA. These methods may not yield sequences but support presence/absence or abundance-based occurrence data.
 
-The extension can accommodate data whether it comes from a single organism or from bulk samples containing many individuals. It also supports cases where the DNA data is linked to physical material (like a museum specimen) or not.
+The extension is designed to handle data derived from both individual organisms and bulk samples. It supports datasets where DNA is linked to physical material (e.g., a museum specimen, tissue, or slide) as well as those based purely on environmental or digital evidence.
+
+> ## What if there are fields I need that are missing?
+>
+> Get involved in TDWG's [Genomic Biodiversity Interest Group](https://www.tdwg.org/community/gbwg)! You are also welcome to post a question or issue on the [Github](https://github.com/tdwg/gbwg/issues).
+>
+{: .objectives}
 
 ## General Approach to Using the Extension
 
