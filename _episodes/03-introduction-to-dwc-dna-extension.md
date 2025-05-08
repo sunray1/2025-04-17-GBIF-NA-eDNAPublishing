@@ -1,22 +1,20 @@
 ---
 title: "Introduction to DwC DNA extension"
-teaching: 10
+teaching: 30
 exercises: 0
 questions:
-- "How are The Carpentries lessons formatted?"
+- "What is the main purpose of the DNA Derived Data extension?"
+- "What kinds of molecular methods are supported in biodiversity data infrastructure?"
+- "If I have eDNA or metabarcoding data, how do I prepare it for public sharing?"
 objectives:
-- "Explain the header of each episode."
-- "Explain the overall structure of each episode."
-- "Explain why blockquotes are used to format parts of episodes."
-- "Explain the use of code blocks in episodes."
+- "Explain the purpose and scope of the DNA Derived Data extension."
+- "Distinguish between what the extension is and isn't designed to store."
+- "Outline the steps to prepare and map DNA data for publication."
 keypoints:
-- "Lesson episodes are stored in _episodes/dd-subject.md."
-- "Each episode's title must include a title, time estimates, motivating questions, lesson objectives, and key points."
-- "Episodes should not use sub-titles or HTML layout."
-- "Code blocks can have the source, regular output, or error class."
-- "Special sections are formatted as blockquotes that open with a level-2 header and close with a class identifier."
-- "Special sections may be callouts or challenges; other styles are used by the template itself."
-math: true
+- "The DNA Derived Data extension standardizes how DNA-based occurrence data is shared through biodiversity platforms like GBIF."
+- "It supports detailed reporting of lab and bioinformatic methods, enhancing reproducibility and data reuse."
+- "It is not for storing raw reads or full genome sequences—only short sequences like barcodes."
+- "The extension builds on established standards (MIxS, GGBN, MIQE) and integrates with Darwin Core using the Occurrence Core."
 ---
 
 ## What is the Darwin Core DNA Derived Data Extension?
