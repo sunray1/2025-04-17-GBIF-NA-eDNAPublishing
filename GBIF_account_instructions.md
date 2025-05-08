@@ -11,11 +11,11 @@ subtitle: "Reading and References"
 
 First, navigate to <a href="https://www.gbif.org/" target="_blank" rel="noopener">gbif.org</a> and click the <strong>Login</strong> button in the upper right corner:
 
-<img src="https://sunray1.github.io/2025-05-09-GBIF-NA-DNAPublishing/fig/GBIFHome.png" width="500"/></a>
+<img src="https://sunray1.github.io/2025-05-09-GBIF-NA-DNAPublishing/fig/GBIFHome.png" width="700"/>
 
 Then choose your preferred method of registering your account:
 
-<img src="https://sunray1.github.io/2025-05-09-GBIF-NA-DNAPublishing/fig/GBIF_login_options.png" width="500"/>
+<img src="https://sunray1.github.io/2025-05-09-GBIF-NA-DNAPublishing/fig/GBIF_login_options.png" width="700"/>
 
 That's it.
 
