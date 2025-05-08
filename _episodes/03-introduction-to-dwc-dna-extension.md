@@ -41,7 +41,7 @@ The extension includes many fields that support methodological transparency and 
 
 > ## What about `associatedSequences`?
 >
-> 
+> Yes, the Occurrence core includes a field called [`associatedSequences`](https://dwc.tdwg.org/list/#dwc_associatedSequences), part of the MaterialEntity suite of terms. While it *can* be used to reference sequence data, the DNA Derived Data extension is designed to support much more detailed and structured sharing of molecular data.
 >
 {: .caution}
 
