@@ -32,6 +32,12 @@ Its purpose is to facilitate the publication of DNA related to occurrence data t
 >
 {: .prereq}
 
+> ## What **isn't** the DNA Derived Data Extension?
+>
+> The DNA Derived Data extension is not intended for storing raw reads, full-length sequences, genome assemblies, or annotations. While it includes a `DNA_sequence` field, this is meant only for short sequences—typically DNA barcodes under ~500 base pairs. Biodiversity data platforms using this extension are not primary archives for genomic data. Instead, all comprehensive sequence data should be deposited in specialized repositories such as NCBI’s SRA or GenBank.
+>
+{: .caution}
+
 ## History of the Extension
 
 The need for clear guidelines on publishing molecular biodiversity data led to the development of a community guide, *Publishing DNA-derived data through biodiversity data platforms*, published by GBIF, OBIS, and other collaborators. This guide and the associated extension arose from discussions at the biodiversity_next conference in 2019, incorporating input from various resources and communities involved in DNA data. These included groups like the Biodiversity Information Standards (TDWG) Genomic Biodiversity Working Group and the TDWG task group on sustainable Darwin Core-MIxS interoperability. The DNA Derived Data extension is currently implemented and in use in platforms like the GBIF Integrated Publishing Toolkit (IPT) and GBIF.org. While the current focus is on existing Darwin Core recommendations, a new data model is being developed by GBIF and the OBIS community that may change how genetic data is linked in the future.
