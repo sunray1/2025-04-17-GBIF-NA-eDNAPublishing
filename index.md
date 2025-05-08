@@ -159,7 +159,7 @@ This block displays the date and links to Google Calendar.
 {% endif %}
 
 <p id="where">
-  <strong>Cost:</strong> This workshop is free to attend. Registration is available at the link <a href="https://fieldmuseum.zoom.us/meeting/register/IOr46zQ-SFacxq9WLSzZqw">here</a>.
+  <strong>Cost:</strong> This workshop is free to attend.
 </p>
 
 {% comment %}
