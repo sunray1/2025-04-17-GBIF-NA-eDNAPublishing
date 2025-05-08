@@ -19,78 +19,66 @@ keypoints:
 math: true
 ---
 
-## What is the DwC DNA Extension and Why is it Important?
+## What is the Darwin Core DNA Derived Data Extension?
 
-The DNA Derived Data extension is a component of the **Darwin Core standard**, which is widely used for sharing biodiversity data. Its primary purpose is to enable the publication of information derived from DNA, such as sequences obtained from environmental samples (eDNA) or bulk samples, or detections made via methods like qPCR or ddPCR.
+The DNA Derived Data extension is a structured set of terms designed to capture information related to DNA sampling, processing, and bioinformatic methods. It incorporates terms from established genomic data standards, including Minimum Information about any (x) Sequence (MIxS), Genomic Standards Consortium (GSC), Genomic Biodiversity Working Group (GGBN), and Minimum Information for Publication of Quantitative Real-Time PCR Experiments (MIQE) guidelines for qPCR and ddPCR data.
 
-Publishing DNA-derived data through platforms like GBIF ensures that the data is discoverable, accessible, interoperable, and reusable alongside other biodiversity information, such as museum specimens or field observations. This integration helps document taxon occurrences, even for organisms that are difficult to observe physically. Standardizing the reporting of DNA-derived occurrences, regardless of whether the species are formally named, enhances the reproducibility and comparability of the data, which is crucial for documenting the many undescribed species. Open access to these data also boosts their citability, aids conservation efforts, and contributes to both taxonomic and ecological knowledge.
+Its **purpose** is to facilitate the publication of DNA-derived occurrence data through biodiversity data platforms such as GBIF and OBIS. By providing a standardized way to describe this type of data, the extension increases its usability beyond its original molecular ecology or phylogenetic context and allows it to be linked with other forms of biodiversity data, including museum specimens and field surveys. This contributes to a more complete and discoverable digital picture of nature. Making DNA-derived data accessible helps support large-scale data-intensive research, management, and policy by making otherwise difficult-to-observe biodiversity discoverable and reusable.
 
-The extension helps to capture detailed information about the **sampling, processing, and bioinformatic methods** used to generate the DNA data. This metadata is essential for users accessing the data to understand how it was produced and evaluate its reliability.
+## History of the Extension
 
-## History and Development
+The need for clear guidelines on publishing molecular biodiversity data led to the development of a community guide, *Publishing DNA-derived data through biodiversity data platforms*, published by GBIF, OBIS, and other collaborators. This guide and the associated extension arose from discussions at the biodiversity_next conference in 2019, incorporating input from various resources and communities involved in DNA data. These included groups like the Biodiversity Information Standards (TDWG) Genomic Biodiversity Working Group and the TDWG task group on sustainable Darwin Core-MIxS interoperability. The DNA Derived Data extension is currently implemented and in use in platforms like the GBIF Integrated Publishing Toolkit (IPT) and GBIF.org. While the current focus is on existing Darwin Core recommendations, a new data model is being developed by GBIF and the OBIS community that may change how genetic data is linked in the future.
 
-The effort to standardize the publication of DNA-derived data through biodiversity platforms is a collaborative one. A community guide titled **"Publishing DNA-derived data through biodiversity data platforms"** was published by GBIF, OBIS, and other partners to provide guidance on this topic. This guide is supported by the DNA Derived Data extension for Darwin Core.
+## What Kinds of DNA Data Can It Handle?
 
-The extension incorporates terms from the **Minimum Information about any (x) Sequence (MIxS) standard**, developed by the Genomic Standards Consortium (GSC). It also includes fields from the GGBN standard and the MIQE guidelines (minimum information for the publication of quantitative real-time PCR experiments) to accommodate various types of DNA data, including qPCR and ddPCR. This ongoing effort involves groups like the Sustainable DwC-MIxS interoperability task group under TDWG. OBIS has also been developing a bioinformatics pipeline to facilitate the publication of marine DNA data, initially for the PacMAN project, which aims to output DwC-compatible tables including DNA-derived data.
+The DNA Derived Data extension can be used to standardize occurrence data derived from various molecular methods, including:
 
-## What Kinds of Data Can It Handle?
+*   **Environmental DNA (eDNA):** DNA extracted directly from environmental samples (like water, soil, or air) without isolating the source organism.
+*   **Metabarcoding:** Uses universal primers and high-throughput sequencing (HTS / NGS) to amplify and sequence specific DNA markers from a mixed sample, allowing simultaneous identification of multiple organisms. This is a common source of sequence-derived data.
+*   **Barcoding:** Uses short, standardized DNA fragments to identify individual organisms. Datasets where genetic material is associated with an observable specimen often fall into this category.
+*   **Metagenomics:** Sequences all DNA in a sample without targeting specific markers, providing sequence-derived data in the form of gene matches or metagenome-assembled genomes.
+*   **qPCR (Quantitative Polymerase Chain Reaction) / ddPCR (Droplet Digital Polymerase Chain Reaction):** These methods detect the presence (or absence) of a target organism's DNA using species-specific primers. Unlike metabarcoding or barcoding, these methods do not necessarily produce a sequence that is included in the `DNA_sequence` field; the occurrence is based on the detection itself.
 
-The DNA Derived Data extension is designed to handle data from various DNA-based methods used to document taxon occurrences, including:
+The extension can accommodate data whether it comes from a single organism or from bulk samples containing many individuals. It also supports cases where the DNA data is linked to physical material (like a museum specimen) or not.
 
-*   **Environmental DNA (eDNA) and Metabarcoding:** Data derived from sequencing DNA extracted from environmental samples (like water, soil, or air) or bulk samples containing multiple individuals.
-*   **Barcoding:** Data where a short, standardized DNA fragment is used to identify an individual organism.
-*   **Metagenomics:** Although metabarcoding is used as the primary model, the concepts for publishing sequence-derived diversity data using the extension can apply to metagenomic data, which involves sequencing all DNA in a sample.
-*   **Targeted Species Detection (qPCR/ddPCR):** Data resulting from methods like Quantitative Polymerase Chain Reaction (qPCR) or Droplet-Digital Polymerase Chain Reaction (ddPCR), which detect specific DNA sequences using species-specific primers but do not necessarily generate the full DNA sequence of the target.
+## General Approach to Using the Extension
 
-The sources categorize DNA-derived data into five types for mapping purposes: DNA-derived occurrences (Category I), Enriched occurrences (Category II), Targeted species detection (Category III), Name references (Category IV), and Metadata only (Category V). The DNA Derived Data extension is primarily used for Categories I, II, and III.
+Publishing DNA-derived data through platforms like GBIF and OBIS involves standardizing your dataset using Darwin Core terms and the DNA Derived Data extension. The widely used format for this is the Darwin Core Archive (DwC-A).
 
-## Generally How to Use It
+Here's a general overview of the process, keeping in mind your familiarity with Darwin Core and specimen data:
 
-When publishing DNA-derived data using the DwC standard, the data should generally be published with the **Occurrence core**. This approach is currently recommended because it allows occurrence-level data, such as processed barcode sequences, to be linked effectively. The DNA Derived Data extension file is then **linked to the Occurrence core** data table using the `occurrenceID` and/or `eventID` fields. Datasets may also include an **extendedMeasurementOrFact (eMoF) extension file** for additional measurements, such as environmental parameters like temperature or salinity.
+1.  **Data Preparation:** Your raw data, often stored in multiple files (like sequence tables, taxonomy tables, sample information, and sequences), needs to be combined into a single "long format" table where **each row represents a unique sequence-by-sample combination, considered as one occurrence**. For qPCR/ddPCR, each row might represent a targeted detection (or non-detection) for a specific species in a sample.
+2.  **Darwin Core Mapping:** You will map the columns in your combined data table to appropriate Darwin Core terms. The current recommendation is to publish DNA-derived data using the **Occurrence core**. Even if your data comes from a single sampling event with many detected sequences, you map these to Occurrence records. This is because the DwC-A structure makes it easiest to link occurrence-specific information, like the DNA sequence, using extensions. You should include an `eventID` for each Occurrence record to indicate which sampling event the occurrence came from.
+3.  **Populating the Occurrence Core:** Beyond the standard required terms for Occurrence datasets, you should consider adding specific fields highly relevant to DNA data. Examples include:
+    *   `basisOfRecord`: Use "MaterialSample" for DNA-derived occurrences. If the DNA is linked to a specimen, use "PreservedSpecimen" or "LivingSpecimen".
+    *   `organismQuantity` and `OrganismQuantityType`: For sequencing data, `organismQuantity` is the number of reads for a specific sequence, and `OrganismQuantityType` is "DNA sequence reads". These represent *relative* abundance within the sample. For ddPCR, `organismQuantity` is the number of positive partitions, and `OrganismQuantityType` is the partition type (e.g., "ddPCR droplets"). For qPCR, it might be the number of gene copies.
+    *   `sampleSizeValue` and `sampleSizeUnit`: For sequencing data, `sampleSizeValue` is the total reads in the sample, and `sampleSizeUnit` is "DNA sequence reads". These are needed to calculate relative abundance. For ddPCR, `sampleSizeValue` is the number of accepted partitions. For qPCR, these fields are typically not used for copy numbers.
+    *   `associatedSequences`: Provide links or identifiers to where the raw sequence information can be found in public archives.
+    *   `materialSampleID`: An identifier for the physical or environmental sample the DNA came from. Use a Biosample ID from a nucleotide archive if available.
+    *   `samplingProtocol`: Describes the method used to collect the sample.
+    *   `identificationRemarks`: Details on the taxonomic identification process, including the algorithm, reference database used, and confidence level.
+    *   `identificationReferences`: Links to the bioinformatic pipeline or publication explaining the identification.
+    *   `taxonConceptID`: Can store identifiers from non-Linnean reference databases like BOLD BINs or UNITE SHs.
+    *   `verbatimIdentification`: Record the original name documented for the sequence, especially if it's not a standard scientific name.
+4.  **Populating the DNA Derived Data Extension:** This is where you add details specific to the DNA processing. Key fields in the extension include:
+    *   `DNA_sequence`: **Crucially, for sequencing data, this field contains the actual Amplicon Sequence Variant (ASV) or Operational Taxonomic Unit (OTU) sequence**. This allows future users to re-analyze or compare sequences as reference databases improve. *This field is not used for qPCR/ddPCR data*.
+    *   `sop`: Reference to standard operating procedures for sample processing or bioinformatic methods, ideally a link to a documented protocol.
+    *   `target_gene` and `target_subfragment`: Specify the genetic region targeted by the primers (e.g., 16S rRNA, 18S V9 region).
+    *   `pcr_primer_forward`, `pcr_primer_reverse`, `pcr_primer_name_forward`, `pcr_primer_name_reverse`, `pcr_primer_reference`: Details about the PCR primers used.
+    *   `Pcr_cond`, `annealingTemp`: Details about the PCR conditions.
+    *   `ampliconSize`: Size of the amplified DNA fragment.
+    *   `env_broad_scale`, `env_local_scale`, `env_medium`: Description of the environmental context of the sample, ideally using terms from ontologies like Environment Ontology (ENVO).
+    *   `seq_meth`: Sequencing technology used (e.g., Illumina MiSeq).
+    *   `otu_class_appr`, `otu_seq_comp_appr`, `otu_db`: Details about the bioinformatic methods and reference databases used for taxonomic assignment.
+    *   For qPCR/ddPCR data, additional fields related to DNA concentration, PCR reaction volumes, quantification cycles, and quality metrics (`concentration`, `ratioOfAbsorbance260_230`, etc.) are available and recommended.
+5.  **Handling Unknown Sequences:** It's common for DNA studies to find sequences that don't match entries in current reference databases. It is important to publish these sequences as well, as they represent real biodiversity that may be identified later. For such uncharacterized sequences:
+    *   Set `scientificName` to "Incertae sedis" or the lowest known taxonomic rank.
+    *   For "Incertae sedis", set `scientificNameID` to the specific WoRMS LSID: urn:lsid:marinespecies.org:taxname:12. If a different low rank is used, find the corresponding `scientificNameID`.
+    *   Use `verbatimIdentification` to record any original name or description available (e.g., "phototrophic eukaryote").
+6.  **Using Identifiers:** Leverage global identifiers whenever possible. This includes DOIs for datasets and publications, Biosample IDs from public nucleotide archives (NCBI SRA, EMBL ENA, DDBJ) for `materialSampleID`, and potentially MD5 checksums of sequences if the full sequence isn't provided. OBIS emphasizes using WoRMS identifiers for `scientificNameID` to maintain a consistent taxonomic backbone.
 
-Data is often initially spread across multiple files (e.g., OTU-table, taxonomy table, sample information table, .fasta file). For publishing, this data needs to be formatted into a **"long format"**, where each unique sequence by sample combination is considered a single occurrence, occupying one row in the data table.
+## Relationship to Raw Sequence Data
 
-### Key Darwin Core Terms
+Biodiversity data platforms like GBIF and OBIS are not intended to be archives for raw sequence reads. Community expectation is that primary genomic data (raw reads) are first shared through established repositories like the International Nucleotide Sequence Database Collaboration (INSDC) (NCBI SRA, EMBL ENA, DDBJ).
 
-When compiling DNA-derived datasets, several terms in the Occurrence core table are particularly important.
-
-For **Metabarcoding and Barcoding** data (Categories I & II):
-
-*   **`basisOfRecord`**: For DNA-derived occurrences (Category I), this should be `MaterialSample`. For enriched occurrences (Category II), use `PreservedSpecimen` or `LivingSpecimen` as appropriate.
-*   **`organismQuantity`**: Records the **amount of a unique sequence** (e.g., number of reads) in a specific sample. For ddPCR, it refers to the number of positive partitions.
-*   **`organismQuantityType`**: Should be populated with "**DNA sequence reads**" for sequencing studies. For ddPCR, it's the partition type (e.g., "ddPCR droplets").
-*   **`sampleSizeValue`**: Records the **total number of all reads** in a specific sample for sequencing studies. For ddPCR, it's the number of accepted partitions.
-*   **`sampleSizeUnit`**: Should be "**DNA sequence reads**" for sequencing studies. For ddPCR, it's the partition type.
-*   **`associatedSequences`**: Contains a reference (like a URL or ID) to where genetic sequence information associated with the occurrence can be found, such as a public repository (e.g., NCBI BioProject). It is recommended that links include the domain name.
-*   **`identificationRemarks`**: Used to document the taxonomic identification process, including the reference database used and confidence level. This information is often also recorded in the DNA Derived Data extension fields `otu_seq_comp_appr` and `otu_db`.
-*   **`identificationReferences`**: Should include a link to the bioinformatic pipeline or publication detailing the identification process.
-*   **`taxonConceptID`**: Can include a taxonomic ID from a reference database that is not a Linnean name (e.g., NCBI:txid9771).
-*   **`verbatimIdentification`**: Can record the original name or identifier used.
-*   **`samplingProtocol`**: Can contain a description or link to the methods used to obtain the sample.
-*   **`materialSampleID`**: An identifier for the physical material sample. If available, use a biosample ID from a nucleotide archive.
-
-For **qPCR/ddPCR** data (Category III), in addition to many of the above, specific attention is paid to quantity fields and methods. `scientificName` is a required term for both metabarcoding and qPCR data, along with higher taxonomy fields. OBIS, specifically, recommends using the scientific name as listed in the WoRMS database, which differs slightly from GBIF's recommendation for sequence-derived data.
-
-### Key DNA Derived Data Extension Terms
-
-The DNA Derived Data extension is where most of the specific molecular metadata is captured.
-
-For **Metabarcoding** data (Categories I & II):
-
-*   **`DNA_sequence`**: **The most important field**. This is where the actual ASV/OTU sequence is recorded. This allows for searching and future reinterpretation as reference databases improve. Note: This field is **not used** for qPCR/ddPCR data.
-*   **`sop`**: Standard operating procedures used, ideally referenced with a link (e.g., protocols.io).
-*   **`target_gene`** and **`target_subfragment`**: Identify the specific genetic region targeted (e.g., 16S rRNA, 18S V9 region).
-*   **`pcr_primer_forward`**, **`pcr_primer_reverse`**, **`pcr_primer_name_forward`**, **`pcr_primer_name_reverse`**, **`pcr_primer_reference`**: Details about the PCR primers used.
-*   **`pcr_cond`**: PCR conditions.
-*   **`annealingTemp`** and **`annealinTempUnit`**: The annealing temperature used in PCR.
-*   **`ampliconSize`**: The size of the amplified DNA fragment.
-*   **`env_broad_scale`**, **`env_local_scale`**, **`env_medium`**: Describe the environmental system from which the sample was extracted.
-*   **`lib_layout`**: Describes the library layout (e.g., paired-end).
-*   **`seq_meth`**: Sequencing method used (e.g., Illumina MiSeq).
-*   **`otu_class_appr`**, **`otu_seq_comp_appr`**, **`otu_db`**: Describe the methods and databases used for taxonomic annotation (e.g., DADA2, BLAST, Genbank nr).
-
-For **qPCR/ddPCR** data (Category III), many of the fields related to PCR and environmental context are still important and highly recommended, such as `sop`, `target_gene`, `pcr_primer` fields, and `env_` fields. Additional terms related to the DNA sample before qPCR analysis (e.g., `concentration`, `ratioOfAbsorbance260_280`) and qPCR-specific terms (e.g., `quantificationCycle`) are also available.
-
-### Handling Unknown Sequences
-
-Even sequences that cannot be fully characterized or assigned to a known taxon should be recorded. For unknown sequences, it is required to populate the `scientificName` field with "**Incertae sedis**" or the lowest known taxonomic rank. The `scientificNameID` should be populated accordingly; for Incertae sedis, it should be `urn:lsid:marinespecies.org:taxname:12` for OBIS data. It is also recommended to use `verbatimIdentification` for the originally documented name. Crucially, **all sequences, including uncharacterized ones, should be recorded** in the `DNA_sequence` field to allow for future identification as reference databases improve.
+The DwC DNA Derived Data extension helps link the processed occurrence data (like the ASV/OTU sequence and its taxonomic assignment) to the original raw data by using identifiers and links in fields like `associatedSequences` and `materialSampleID` (using Biosample IDs). This ensures that users of the biodiversity platform can trace the data back to its source if needed.
