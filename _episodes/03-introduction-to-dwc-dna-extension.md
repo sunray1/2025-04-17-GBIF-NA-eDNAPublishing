@@ -75,7 +75,7 @@ The extension is designed to handle data derived from both individual organisms 
 
 ## General Approach to Using the Extension
 
-1. Initial Checks
+### 1. Initial Checks
 
     Before beginning the process of mapping your data, it is important to have a critical look at your dataset. Ask yourself the following questions to assess its readiness and plan your workflow:
 
@@ -87,7 +87,7 @@ The extension is designed to handle data derived from both individual organisms 
     - Does the data need to be amended or annotated with additional fields?
     - Does the data need to be reorganized or restructured? Genetic data from multiple files (OTU, taxonomy, sample info) needs to be combined into a "long format" table, where each unique sequence by sample combination is a single row (occurrence). This is crucial for mapping to the DwC standard.
 
-2. Decide how your final dataset will be generally structured.
+### 2. Decide how your final dataset will be generally structured.
 
     Datasets can be translated in many ways - you will find with particularly complicated datasets, there may be multiple, valid ways of mapping the data.
 
@@ -96,11 +96,11 @@ The extension is designed to handle data derived from both individual organisms 
     - Which Extensions are suitable for this dataset? For DNA data, the DNA Derived Data extension is essential. An extendedMeasurementsOrFact (eMoF) extension is also often used for environmental measurements or other facts associated with the sample.
     - Do you have all necessary identifiers needed to link your tables? You might need to generate unique, persistent identifiers if they don't already exist.
 
-3. Categorize Your Data
+### 3. Categorize Your Data
 
     The GBIF reference guide contains recommended fields and suggestions for mapping different types of DNA data. For a guide and decision tree on determining which category your data falls into, see the [Categorization of your data](https://docs.gbif.org/publishing-dna-derived-data/en/#categorization-of-your-data) section.
     
-4. Reformat your data (optional)
+### 4. Reformat your data (optional)
 
     Genetic data is often recorded in multiple different files, and this might be the type of format received from data providers. Important data tables can include: an OTU-table, a taxonomy table, a sample information table, and a .fasta file with sequences. The OTU-table is a sequence by sample table, which records the quantity of each unique sequence found in each sample. Sequences are usually referred to by an ID, which is unique only in the dataset (e.g. asv1, asv2, asv3 …). The taxonomy table is a sequence by taxonomy table, which records the taxonomy linked to each unique sequence, as defined by the annotation method. The sample information table records the metadata of each sample (e.g. location, time, and collection method). Finally the .fasta file records the actual DNA sequence that is linked to each sequence id.
 
@@ -108,7 +108,7 @@ The extension is designed to handle data derived from both individual organisms 
     
     ![Venn Diagram showing how BOLD, GenBank and GBIF records overlap.]({{ page.root }}/fig/DNA_4tables-to-one.jpg)
 
-5. Conceptually Map Your Data
+### 5. Conceptually Map Your Data
 
       Before diving into the technical work of restructuring your files, take time to **conceptually map** your data — that is, understand how each field in your raw files will be translated into Darwin Core (DwC) terms. This step helps prevent errors and saves time by giving you a clear plan for transformation.
       
@@ -120,7 +120,7 @@ The extension is designed to handle data derived from both individual organisms 
       - Consider relationships between tables. Use identifiers like `occurrenceID`, `materialSampleID`, and `eventID` to **link** records across your Occurrence Core and extensions. You may have to create your own identifiers.
       - Reference the [GBIF mapping guide](https://docs.gbif.org/publishing-dna-derived-data/en/#data-mapping) to see how others have mapped similar data types.
 
-6. Map Your Data
+### 6. Map Your Data
 
     Once you’ve conceptually mapped your fields, the next step is to **transform your data** into DwC-compliant tables. This is where the actual work of data wrangling happens.
     
@@ -136,6 +136,14 @@ The extension is designed to handle data derived from both individual organisms 
     - **Reproducibility**: You can re-run the script when you receive new data or need to update something.
     - **Transparency**: Others (or future you) can see exactly how the data was transformed.
     - **Scalability**: Scripts handle large datasets more easily than spreadsheets.
+
+> ## Examples and Resources
+>
+> See [this list of R Notebooks](https://iobis.github.io/mwhs-data-mobilization/) for examples of these scripts.
+> A full example workflow for eDNA data is available [here](https://sunray1.github.io/PublishingSimoesetalOBIS/).
+> See also [a checklist recipe](https://doi.org/10.1093/database/baaa084) for a published workflow.
+>
+{: .objectives}
 
 - See [this list of R Notebooks](https://iobis.github.io/mwhs-data-mobilization/) for examples of these scripts.
 - A full example workflow for eDNA data is available [here](https://sunray1.github.io/PublishingSimoesetalOBIS/).
