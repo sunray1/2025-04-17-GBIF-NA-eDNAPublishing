@@ -439,6 +439,8 @@ during the workshop.
 {% include lc/setup.html %}
 {% elsif site.carpentry == "edna" %}
 {% include edna/setup.html %}
+{% include install_instructions/r.html %}
+{% include install_instructions/python.html %}
 {% elsif site.carpentry == "incubator" %}
 Please check the "Setup" page of
 <a href="{{site.incubator_lesson_site}}">the lesson homepage</a> for instructions to follow
