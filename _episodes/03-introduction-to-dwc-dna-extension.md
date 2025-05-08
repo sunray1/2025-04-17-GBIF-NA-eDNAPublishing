@@ -1,7 +1,7 @@
 ---
 title: "Introduction to DwC DNA extension"
-teaching: 30
-exercises: 0
+teaching: 20
+exercises: 10
 questions:
 - "What is the main purpose of the DNA Derived Data extension?"
 - "What kinds of molecular methods are supported in biodiversity data infrastructure?"
@@ -73,7 +73,7 @@ The extension is designed to handle data derived from both individual organisms 
 
 > ## Challenge: Explore the Extension
 >
-> Spend about 10 minutes exploring the [DNA Derived Data extension fields](https://rs.gbif.org/extension/gbif/1.0/dna_derived_data_2024-07-11.xml) or browsing some [occurrence records that use the extension](https://www.gbif.org/occurrence/search?advanced=1&dwca_extension=http:~2F~2Frs.gbif.org~2Fterms~2F1.0~2FDNADerivedData).
+> Spend about 10 minutes exploring the [DNA Derived Data extension fields](https://rs.gbif.org/extension/gbif/1.0/dna_derived_data_2024-07-11.xml) or browsing some [occurrence records that use the extension](https://www.gbif.org/occurrence/search?advanced=1&dwca_extension=http:~2F~2Frs.gbif.org~2Fterms~2F1.0~2FDNADerivedData). You can click through the available datasets on the [metrics page](https://www.gbif.org/occurrence/charts?dwca_extension=http:~2F~2Frs.gbif.org~2Fterms~2F1.0~2FDNADerivedData) (bottom right - click on the dataset you want to look at the occurrences for, then click to the Table tab to explore)
 >
 > Which fields seem relevant to your own data? Most fields capture methodological details that often aren’t included in raw datasets—can you provide or obtain this information?
 >
