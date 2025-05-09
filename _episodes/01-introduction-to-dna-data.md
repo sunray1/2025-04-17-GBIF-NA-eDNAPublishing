@@ -66,30 +66,50 @@ This category includes a range of sequencing approaches such as DNA barcoding, w
 
 Importantly, enriched occurrences can be derived from both newly collected material and historical specimens. In some instances, an entire physical specimen may not have been retained—such as when a sample (e.g., hair, feathers, or plant tissue) was taken in the field—but sufficient metadata (e.g., date, location, taxon identification) still allows the genetic data to be linked to a valid occurrence record. 
 
-## Introduction to GenBank and BOLD
+## Introduction to NCBI and BOLD
 
 ### BOLD (Barcode of Life Data Systems)
 
-**[BOLD](https://portal.boldsystems.org/)** is a comprehensive informatics workbench launched in 2005 that supports the acquisition, storage, analysis, and publication of DNA barcode records. BOLD's primary purpose is to provide a centralized resource for DNA barcoding, which is a method used for species identification through DNA sequences, typically from the mitochondrial cytochrome c oxidase subunit 1 (COI) gene. 
+The International Barcode of Life (iBOL) consortium has developed the **[Barcode of Life Data
+Systems (BOLD)](https://portal.boldsystems.org/)**, an informatics platform that includes barcode sequences from specimens
+held in natural history collections around the world. Consisting of four main modules, a data portal, an educational portal, a registry of BINs (putative species), and a data collection and analysis workbench, it supports the acquisition, storage, analysis, and publication of DNA barcode records. BOLD's primary purpose is to provide a centralized resource for DNA barcoding, which is a method used for species identification through DNA sequences, typically from the mitochondrial cytochrome c oxidase subunit 1 (COI) gene.
 
-### GenBank
+Developed at the Canadian Centre for DNA Barcoding (CCDB) at the University of Guelph in Canada in response to the BARCODE 500K project, BOLD is widely used in the DNA barcoding community and is the standard platform through which data are typically returned when samples are processed by CCDB. 
 
-**[GenBank](https://www.ncbi.nlm.nih.gov/genbank/)**, managed by the National Center for Biotechnology Information (NCBI), is one of the largest and most widely used DNA sequence databases in the world. It has been a core resource for molecular biologists and bioinformaticians for decades. Over the years, GenBank has expanded beyond traditional gene sequences to include mitochondrial genomes, whole genomes, and data from next-generation sequencing (NGS) projects such as metagenomics and metabarcoding. 
+### NCBI
+
+[National Center for Biotechnology Information (NCBI)](https://www.ncbi.nlm.nih.gov/) houses a series of interconnected databases relevant to biotechnology and biomedicine and is an important resource for bioinformatics tools and services. It maintains many [databases](https://www.ncbi.nlm.nih.gov/guide/all/#databases), storing information such as DNA and protein sequences, genomes, protein structures and even a taxonomic database.
+
+**[GenBank](https://www.ncbi.nlm.nih.gov/genbank/)* is a comprehensive public database of nucleotide sequences and supporting bibliographic and biological annotations. NCBI builds GenBank primarily from submissions of sequence data from authors and from bulk submissions of whole-genome shotgun (WGS) and other high-throughput data from sequencing centers. GenBank is accessible through the NCBI [Nucleotide](https://www.ncbi.nlm.nih.gov/nuccore) database, which links records to related records in other databases such as taxonomy, genomes, protein sequences and structures, and biomedical journal literature in the [PubMed](https://pubmed.ncbi.nlm.nih.gov/) database.
+
+Although Sanger sequencing—a first-generation, cost-effective method for generating short reads—is still commonly used for DNA barcoding and other targeted applications, many researchers now rely on next-generation (e.g., Illumina) and third-generation (e.g., PacBio, Oxford Nanopore) sequencing technologies for high-throughput studies of genomes, transcriptomes, and metagenomes. Raw sequence data from these platforms are typically submitted to the [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra), while downstream products such as genome assemblies and annotations are deposited in the dedicated [Genome](https://www.ncbi.nlm.nih.gov/datasets/genome/) database. Annotated individual [Genes](https://www.ncbi.nlm.nih.gov/gene/) and [Proteins](https://www.ncbi.nlm.nih.gov/protein) are submitted to their respective repositories, ensuring the broader accessibility and reuse of these data across research communities.
+
+Interestingly, the [BioSample](https://www.ncbi.nlm.nih.gov/biosample) database stores descriptive metadata about the biological materials used to generate data submitted to NCBI’s primary archives. These materials often include cell lines, tissue samples, or environmental isolates, but they can also represent individual organisms. Despite this overlap, BioSample records remain largely disconnected from biodiversity platforms like GBIF—highlighting a potential area for future integration and exploration.
+
+> ## Rabbit Hole
+>
+> BioSample provides three "packages" of attributes that may be useful to museum specimens - [animal](https://submit.ncbi.nlm.nih.gov/biosample/template/?organism-organism_name=&organism-taxonomy_id=&package-0=Model.organism.animal.1.0&action=definition), [plant](https://submit.ncbi.nlm.nih.gov/biosample/template/?organism-organism_name=&organism-taxonomy_id=&package-0=Plant.1.0&action=definition) and [invertebrate](https://submit.ncbi.nlm.nih.gov/biosample/template/?organism-organism_name=&organism-taxonomy_id=&package-0=Invertebrate.1.0&action=definition). Each of these uses the following field: specimen_voucher, defined as:
+> > 'Identifier for the physical specimen. Use format: "[<institution-code>:[<collection-code>:]]<specimen_id>", eg, "UAM:Mamm:52179". Intended as a reference to the physical specimen that remains after it was analyzed. If the specimen was destroyed in the process of analysis, electronic images (e-vouchers) are an adequate substitute for a physical voucher specimen. Ideally the specimens will be deposited in a curated museum, herbarium, or frozen tissue collection, but often they will remain in a personal or laboratory collection for some time before they are deposited in a curated collection. There are three forms of specimen_voucher qualifiers. If the text of the qualifier includes one or more colons it is a 'structured voucher'. Structured vouchers include institution-codes (and optional collection-codes) taken from a controlled vocabulary maintained by the INSDC that denotes the museum or herbarium collection where the specimen resides, please visit: [http://www.insdc.org/controlled-vocabulary-specimenvoucher-qualifier](http://www.insdc.org/controlled-vocabulary-specimenvoucher-qualifier).'
+>
+> Here are the list of collections recognized by the INSDC: [https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/coll_dump.txt](https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/coll_dump.txt).
+>
+> Here is a search for nucleotide records with "specimen_voucher": [https://www.ncbi.nlm.nih.gov/nuccore/?term=specimen_voucher](https://www.ncbi.nlm.nih.gov/nuccore/?term=specimen_voucher).
+{: .callout}
 
 ### Do These Platforms Share Data?
 
 Yes—at least in part. The relationships between **BOLD**, **GenBank**, and **GBIF** involve some data sharing, but they serve different roles and audiences, they do not share all of their data with each other, nor are they consistently cross-referenced or synced.
 
-- **BOLD**: Data in BOLD are categorized as either public or private. Only data marked as public (or those under embargo) can be pushed to GenBank, allowing for automatic submission of data upon initiation by the data manager. Once submitted, records are linked and updated from BOLD to GenBank, with taxonomic identification changes automatically communicated. 
+- **BOLD**: Data in BOLD are categorized as either public or private. Only data marked as public (or those under embargo) can be pushed to GenBank, allowing for automatic submission of data upon initiation by the data manager. Once submitted, records are linked and updated from BOLD to GenBank, with taxonomic identification changes automatically communicated. See the [handbook](https://v4.boldsystems.org/index.php/resources/handbook?chapter=6_managingdata.html#publication) for more information.
 - **GenBank**: Stores a wide variety of DNA sequence data, including records submitted from BOLD. However, data is not automatically shared outward from GenBank, nor is it typically ingested by BOLD or GBIF.
-- **GBIF**: Ingests all publicly available data from BOLD and makes it accessible as part of global biodiversity occurrence data.
+- **GBIF**: Ingests all [publicly available data from BOLD](https://www.gbif.org/dataset/040c5662-da76-4782-a48e-cdea1892d14c) on a weekly basis and makes it accessible as part of global biodiversity occurrence data.
 
 > ## Same Record, Different Platforms
 >
-> To see how the same DNA record can be distributed across platforms, explore this example:
-> - [BOLD record](https://portal.boldsystems.org/record/ABMMC131-06)
-> - [GenBank sequence](https://www.ncbi.nlm.nih.gov/nuccore/OQ968921.1)
-> - [GBIF occurrence](https://www.gbif.org/occurrence/2248495877)  
+> To see how the same DNA record can be distributed across platforms, explore this example from the Florida Museum:
+> - [BOLD record](https://portal.boldsystems.org/record/AYK146-19)
+> - [GenBank sequence](https://www.ncbi.nlm.nih.gov/nuccore/MW807638)
+> - [GBIF occurrence](https://www.gbif.org/occurrence/3441423303)  
 {: .discussion}
 
 ![Venn Diagram showing how BOLD, GenBank and GBIF records overlap.]({{ page.root }}/fig/bold_gbif_gb.png){: .image-with-shadow }
