@@ -277,13 +277,7 @@ CODE OF CONDUCT
 <h2 id="code-of-conduct">Code of Conduct</h2>
 
 <p>
-Everyone who participates in Carpentries activities is required to conform to the <a href="https://docs.carpentries.org/policies/coc/">Code of Conduct</a>. This document also outlines how to report an incident if needed.
-</p>
-
-<p class="text-center">
-  <a href="https://goo.gl/forms/KoUfO53Za3apOuOK2">
-    <button type="button" class="btn btn-info">Report a Code of Conduct Incident</button>
-  </a>
+Everyone who participates in GBIF activities is required to conform to the <a href="https://www.gbif.org/code-of-conduct">Code of Conduct</a>. If you need to report an incident, please either contact the organizers or anyone from [GBIF Management](https://www.gbif.org/contact-us).
 </p>
 <hr/>
 
