@@ -102,9 +102,9 @@ The MDT is designed to take import that data and help users (1) map it to Darwin
 **Figure 8 from MDT User Guide [[link]](https://docs.gbif-uat.org/mdt-user-guide/en/#fit_data):** *An example OTU_table with OTU IDs linked to the Taxonomy table and Sample IDs linke to the Samples table. OTU_table: sequence read counts of each OTU per sample; Taxonomy: DNA sequences and taxonomy per OTU; Samples Sample metadata per sample; Study (optional): Metadata values applying to all samples and OTUs; Seqs.fasta (optional) OTU sequences in fasta format.*
 
 
-### Nerd Bonus! MDT has an API
+### 🤓 Nerd Bonus! MDT has an API 🤓
 
-We're no going to go over it today, but for those who are interested in making programmatic connections to the MDT, it does have an API. Documentation can be found in the user guide: <https://docs.gbif-uat.org/mdt-user-guide/en/index.en.html#using-mdt-through-api>
+We're not going to go over it today, but for those who are interested in making programmatic connections to the MDT, it does have an API. Documentation can be found in the user guide: <https://docs.gbif-uat.org/mdt-user-guide/en/index.en.html#using-mdt-through-api>
 
 There aren't many examples of leveraging the API yet, but it's an exciting capability that sets it apart from the IPT.
 
