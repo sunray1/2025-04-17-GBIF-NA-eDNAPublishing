@@ -95,7 +95,11 @@ Last year, a tweak was made to to the extension to allow Event Core and relevant
 
 ## Group Mapping exercise
 
-**Dataset:** Chironomid Specimen records in the Chironomid DNA Barcode Database <https://doi.org/10.15468/hxhow5>
+![Chironomus nipponensis (Specimen ID: S0100)](https://www.nies.go.jp/yusurika/photo/10618.jpg){: .image-with-shadow style="float: left; margin-right: 15px;" width="300px" }
+
+<p style="margin-top: 200px;"><strong>Dataset:</strong> Chironomid Specimen records in the Chironomid DNA Barcode Database <a href = "https://doi.org/10.15468/hxhow5">https://doi.org/10.15468/hxhow5</a></p>
+
+<div style="clear: both;"></div>
 
 > ## Review these terms an example values from the dataset. Note which terms should go in the occurrence table, the DNA table, and the multimedia table.
 >
