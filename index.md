@@ -277,8 +277,9 @@ CODE OF CONDUCT
 <h2 id="code-of-conduct">Code of Conduct</h2>
 
 <p>
-Everyone who participates in GBIF activities is required to conform to the <a href="https://www.gbif.org/code-of-conduct">Code of Conduct</a>. If you need to report an incident, please either contact the [Regional Representative for North America (David Bloom)](https://www.gbif.org/contact-us/directory?personId=2808) or the [Community and Capacity Manager (Mélianie Raymond)](https://www.gbif.org/contact-us/directory?personId=1657).
+Everyone who participates in GBIF activities is required to conform to the <a href="https://www.gbif.org/code-of-conduct">Code of Conduct</a>. If you need to report an incident, please either contact the <a href="https://www.gbif.org/contact-us/directory?personId=2808">Regional Representative for North America (David Bloom)</a> or the <a href="https://www.gbif.org/contact-us/directory?personId=1657">Community and Capacity Manager (Mélianie Raymond)</a>.
 </p>
+
 <hr/>
 
 
