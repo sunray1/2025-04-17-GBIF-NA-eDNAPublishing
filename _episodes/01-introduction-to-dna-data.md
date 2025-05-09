@@ -87,13 +87,16 @@ Although Sanger sequencing—a first-generation, cost-effective method for gener
 Interestingly, the [BioSample](https://www.ncbi.nlm.nih.gov/biosample) database stores descriptive metadata about the biological materials used to generate data submitted to NCBI’s primary archives. These materials often include cell lines, tissue samples, or environmental isolates, but they can also represent individual organisms. Despite this overlap, BioSample records remain largely disconnected from biodiversity platforms like GBIF—highlighting a potential area for future integration and exploration.
 
 > ## Rabbit Hole
->
-> BioSample provides three "packages" of attributes that may be useful to museum specimens - [animal](https://submit.ncbi.nlm.nih.gov/biosample/template/?organism-organism_name=&organism-taxonomy_id=&package-0=Model.organism.animal.1.0&action=definition), [plant](https://submit.ncbi.nlm.nih.gov/biosample/template/?organism-organism_name=&organism-taxonomy_id=&package-0=Plant.1.0&action=definition) and [invertebrate](https://submit.ncbi.nlm.nih.gov/biosample/template/?organism-organism_name=&organism-taxonomy_id=&package-0=Invertebrate.1.0&action=definition). Each of these uses the following field: specimen_voucher, defined as:
-> > 'Identifier for the physical specimen. Use format: "[<institution-code>:[<collection-code>:]]<specimen_id>", eg, "UAM:Mamm:52179". Intended as a reference to the physical specimen that remains after it was analyzed. If the specimen was destroyed in the process of analysis, electronic images (e-vouchers) are an adequate substitute for a physical voucher specimen. Ideally the specimens will be deposited in a curated museum, herbarium, or frozen tissue collection, but often they will remain in a personal or laboratory collection for some time before they are deposited in a curated collection. There are three forms of specimen_voucher qualifiers. If the text of the qualifier includes one or more colons it is a 'structured voucher'. Structured vouchers include institution-codes (and optional collection-codes) taken from a controlled vocabulary maintained by the INSDC that denotes the museum or herbarium collection where the specimen resides, please visit: [http://www.insdc.org/controlled-vocabulary-specimenvoucher-qualifier](http://www.insdc.org/controlled-vocabulary-specimenvoucher-qualifier).'
->
-> Here are the list of collections recognized by the INSDC: [https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/coll_dump.txt](https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/coll_dump.txt).
->
-> Here is a search for nucleotide records with "specimen_voucher": [https://www.ncbi.nlm.nih.gov/nuccore/?term=specimen_voucher](https://www.ncbi.nlm.nih.gov/nuccore/?term=specimen_voucher).
+> 
+> The BioSample database offers three attribute "packages" that may be especially relevant for museum specimens: [animal](https://submit.ncbi.nlm.nih.gov/biosample/template/?organism-organism_name=&organism-taxonomy_id=&package-0=Model.organism.animal.1.0&action=definition), [plant](https://submit.ncbi.nlm.nih.gov/biosample/template/?organism-organism_name=&organism-taxonomy_id=&package-0=Plant.1.0&action=definition), and [invertebrate](https://submit.ncbi.nlm.nih.gov/biosample/template/?organism-organism_name=&organism-taxonomy_id=&package-0=Invertebrate.1.0&action=definition). Each includes a `specimen_voucher` field, which serves as a reference to the physical specimen used in the analysis.
+> 
+> > **specimen_voucher**:  
+> > "Identifier for the physical specimen. Use the format: `"[<institution-code>:[<collection-code>:]]<specimen_id>"`, e.g., `UAM:Mamm:52179`. This should point to the actual specimen retained after analysis. If the specimen was destroyed, an electronic image (e-voucher) is an acceptable substitute. Ideally, specimens are deposited in a curated collection (e.g., museum, herbarium, tissue bank), although they may temporarily remain in personal or lab collections.  
+>  
+> Vouchers that include one or more colons are considered 'structured vouchers'. These use institution and collection codes drawn from a controlled vocabulary maintained by the INSDC. For more information, visit the [INSDC controlled vocabulary for specimen_voucher](http://www.insdc.org/controlled-vocabulary-specimenvoucher-qualifier)."
+> 
+> - Browse the list of recognized collections: [coll_dump.txt](https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/coll_dump.txt)  
+> - Explore existing records using `specimen_voucher`: [NCBI nucleotide search](https://www.ncbi.nlm.nih.gov/nuccore/?term=specimen_voucher)
 {: .callout}
 
 ### Do These Platforms Share Data?
