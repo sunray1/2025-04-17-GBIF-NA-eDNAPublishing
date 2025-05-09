@@ -19,7 +19,7 @@ We're going to map a barcoding dataset as a group, and then have time to work in
 
 ## Enriched Occurrence (barcoding)
 
-<img src="/fig/barcoding_cartoon.jpg" alt="Conceptual model of a barcoding analysis" style="width: 800px;">
+<img src="https://github.com/sunray1/2025-05-09-GBIF-NA-DNAPublishing/blob/gh-pages/fig/barcoding_cartoon.jpg" alt="Conceptual model of a barcoding analysis" style="width: 800px;">
 
 In the GBIF-OBIS guide to DNA publishing, this is described as '**Category II**':
 
@@ -35,7 +35,7 @@ If some genetic material is, or can be, associated with an observation or a spec
 
 ## DNA-derived occurrences (e.g. metabarcoding AKA eDNA)
 
-<img src="/fig/metabarcoding_cartoon.jpg" alt="Conceptual model of a metabarcoding analysis" style="width: 800px;">
+<img src="https://github.com/sunray1/2025-05-09-GBIF-NA-DNAPublishing/blob/gh-pages/fig/metabarcoding_cartoon.jpg" alt="Conceptual model of a metabarcoding analysis" style="width: 800px;">
 
 In the GBIF-OBIS guide to DNA publishing, this is described as '**Category I**':
 
@@ -54,7 +54,7 @@ Depending on what you're used to, this may seem quite different from other biolo
 
 ## Targeted Species Detection (e.g. qPCR)
 
-<img src="/fig/qPCR_cartoon.jpg" alt="Conceptual model of a qPCR analysis" style="width: 800px;">
+<img src="https://github.com/sunray1/2025-05-09-GBIF-NA-DNAPublishing/blob/gh-pages/fig/qPCR_cartoon.jpg" alt="Conceptual model of a qPCR analysis" style="width: 800px;">
 
 In the GBIF-OBIS guide to DNA publishing, this is described as '**Category III**':
 
