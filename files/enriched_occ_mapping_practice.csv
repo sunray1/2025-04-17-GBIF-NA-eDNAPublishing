@@ -1,0 +1,64 @@
+"Occurrence, DNA, or Multimedia?",Term Name,Example Value
+,associatedMedia,https://www.nies.go.jp/yusurika/photo/10001.jpg
+,associatedSequences,http://getentry.ddbj.nig.ac.jp/getentry/na/AB740254/?filetype=html | http://www.boldsystems.org/index.php/Public_RecordView?processid=JCDB002-15
+,basisOfRecord,PreservedSpecimen
+,catalogNumber,1
+,class,Insecta
+,collectionCode,CDBD
+,collectionID,b4e2ff0d-f6ba-45c6-bfdc-68676a9f3a80
+,coordinateUncertaintyInMeters,100
+,country,Japan
+,countryCode,JP
+,county,Miho-mura
+,day,12
+,decimalLatitude,36.028889
+,decimalLongitude,140.336111
+,DNA_sequence,AACTCTCTACATCATTTTTGGTGCTTGATCAGGAATAGTAGGGACTTCCTTAAGTATACTTATTCGAGCAGAATTAGGACGACCCGGAACTTTTATTGGTGATGACCAAATTTATAATGTAGTAGTCACAGCTCACGCATTTATTATAATTTTTTTCATAGTTATGCCAATTTTAATTGGTGGTTTTGGAAATTGACTTGTACCTTTAATACTAGGGGCTCCTGATATGGCTTTCCCCCGAATAAATAATATAAGTTTCTGATTACTCCCCCCATCACTTACTCTACTCCTTTCAAGTTCATTTGTGGAAAATGGTGCGGGAACAGGGTGAACAGTTTACCCCCCTCTTTCCGCAGCCATTGCCCATAGTGGGGCCTCTGTTGACTTAGCCATTTTCTCTTTACATTTAGCAGGAGTCTCCTCAATTCTTGGATCTGTAAATTTTATTACTACTGTTATTAATATACGTGCAAATGGTATTACTTTGGATCGAATACCTTTATTTGTATGATCAGTAGTTATTACAACTGTATTATTACTCTTATCATTACCAGTCCTAGCCGGTGCCATTACCATACTACTAACAGATCGAAATTTAAATACATCGTTCTTTGACCCTGCTGGGGGAGGAGATCCAATTCTATACCAACATTTATTT
+,env_broad_scale,freshwater environment [ENVO_01000306]
+,eventDate,2010-05-12
+,family,Chironomidae
+,format,image/jpeg
+,genus,Chironomus
+,geodeticDatum,WGS84
+,habitat,freshwater habitat
+,identifier,https://www.nies.go.jp/yusurika/photo/10001.jpg
+,individualCount,1
+,institutionCode,NIES
+,institutionID,http://grscicoll.org/institution/national-institute-environmental-studies
+,kingdom,Animalia
+,lib_layout,paired
+,license,https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+,lifeStage,adult
+,locality,"Nebi, coast of Lake Kasumigaura"
+,modified,2016-01-20
+,month,5
+,occurrenceID,NIES:CDBD:1
+,occurrenceStatus,present
+,order,Diptera
+,organismQuantity,1
+,organismQuantityType,individual
+,otherCatalogNumbers,D0001
+,pcr_primer_forward,GGTCAACAAATCATAAAGATATTGG
+,pcr_primer_name_forward,LCO1490
+,pcr_primer_name_reverse,HCO2198
+,pcr_primer_reference,"Folmer O., Black M., Hoeh W., Lutz R., Vrijenhoek R. (1994) DNA primers for amplification of mitochondrial cytochrome c oxidase subunit I from diverse metazoan invertebrates. Molecular Marine Biology and Biotechnology, 3, 294-299."
+,pcr_primer_reverse,TAAACTTCAGGGTGACCAAAAAATCA
+,phylum,Arthropoda
+,project_name,DNA barcoding of chironomids in Japan
+,publisher,"National Institute for Environmental Studies, Japan"
+,recordedBy,R. Ueno
+,rightsHolder,"Chironomid Group, National Institute for Environmental Studies, Japan"
+,scientificName,Chironomus plumosus
+,scientificNameAuthorship,"(Linnaeus, 1758)"
+,seq_meth,"Sanger, ABI3730"
+,sex,male
+,specificEpithet,plumosus
+,stateProvince,Ibaraki
+,subgenus,Chironomus
+,target_gene,COI
+,taxonRank,species
+,title,Chironomus plumosus (Specimen ID: D0001)
+,type,StillImage
+,url,https://www.nies.go.jp/yusurika/en/index.html
+,vernacularName,オオユスリカ
+,year,2010

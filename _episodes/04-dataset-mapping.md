@@ -97,6 +97,18 @@ Last year, a tweak was made to to the extension to allow Event Core and relevant
 
 **Dataset:** Chironomid Specimen records in the Chironomid DNA Barcode Database <https://doi.org/10.15468/hxhow5>
 
+> ## Review these terms an example values from the dataset. Note which terms should go in the occurrence table, the DNA table, and the multimedia table.
+>
+> Download this file: <https://sunray1.github.io/2025-05-09-GBIF-NA-DNAPublishing/files/enriched_occ_mapping_practice.csv>
+>
+> > Don't forget to lean on your guidance!
+> - [Darwin Core Quick Reference Guide](https://dwc.tdwg.org/terms/)
+> - [GBIF-OBIS DNA Publishing Guide](https://docs.gbif.org/publishing-dna-derived-data/en/#mapping-metabarcoding-edna-and-barcoding-data)
+> - [DNA derived data extension](https://rs.gbif.org/extension/gbif/1.0/dna_derived_data_2024-07-11.xml)
+>
+> ![Screenshot of lesson file]({{ page.root }}/fig/group_mapping_screenshot.png){: .image-with-shadow width="1200px"}
+>
+{: .challenge}
 
 
 ## Individual Mapping Excercise
