@@ -14,14 +14,18 @@ math: true
 
 # Datasets From Course
 
-## Museum Specimen + DNA extension
+## Enriched Occurrence (Preserved Specimen + DNA extension)
 
-- Dataset Link: <https://www.gbif.org/dataset/040c5662-da76-4782-a48e-cdea1892d14c>
+![Landing Page Enriched occurrence dataset]({{ page.root }}/fig/landingpage_enriched_occ.png){: .image-with-shadow width="600px" }
 
-- Example Occurrence: <https://www.gbif.org/occurrence/4445072107>
+- Dataset Link: <https://www.gbif.org/dataset/02cc981e-d1d8-4ea6-9db5-dfb73acca024>
+
+- Example Occurrence: <https://www.gbif.org/occurrence/1423744013>
 
 
 ## Exploring marine biodiversity with 16S + 18S
+
+![Landing Page GOMECC dataset]({{ page.root }}/fig/landingpage_gomecc_occ.png){: .image-with-shadow width="600px" }
 
 - Dataset Link: <https://www.gbif.org/dataset/9012def0-bd87-48a0-ac9e-e0e78dd37689>
 
@@ -30,11 +34,15 @@ math: true
 
 ## COI eDNA of intertidal zone
 
+![Landing Page COI Intertidal dataset]({{ page.root }}/fig/landingpage_COI_intertidal_occ.png){: .image-with-shadow width="600px" }
+
 - Dataset Link: <https://www.gbif.org/dataset/9358fbd7-cfd0-4eab-99fa-0934396a0529>
 
 - Example Occurrence: <https://www.gbif.org/occurrence/4537370216>
 
 ## qPCR + metabarcoding of invasive species
+
+![Landing Page qPCR dataset]({{ page.root }}/fig/landingpage_qPCR.png){: .image-with-shadow width="600px" }
 
 - Dataset Link: <https://www.gbif.org/dataset/b88e40a8-c39e-4f8f-962a-7f6d93a977a4>
 
@@ -42,11 +50,15 @@ math: true
 
 ## NEON DNA Extracts
 
+![Landing Page NEON DNA Extracts dataset]({{ page.root }}/fig/landingpage_NEON_extracts.png){: .image-with-shadow width="600px" }
+
 - Dataset Link: <https://www.gbif.org/dataset/66da3373-5cca-4d00-a477-af751b5ed052>
 
 - Example Occurrence: <https://www.gbif.org/occurrence/4951988498>
 
 # Bonus Examples!
+
+![Landing Page R Notebooks dataset]({{ page.root }}/fig/landingpage_Chandra_OBIS.png){: .image-with-shadow width="600px" }
 
 - GitHub repo: <https://github.com/iobis/mwhs-data-mobilization>
 
