@@ -77,7 +77,8 @@ The structure of your data and/or experiment will help you decide the best struc
 
 ## Occurrence Core
 
-<img src="/fig/DwC-A_model.jpg" alt="Conceptual model of a Darwin Core Archive (DwC-A) for DNA data using Occurrence Core" style="float: left; margin-right: 15px; width: 600px;">
+![Conceptual model of a Darwin Core Archive (DwC-A) for DNA data using Occurrence Core]({{ page.root }}/fig/DwC-A_model.jpg){: .image-with-shadow style="float: left; margin-right: 15px;" width="600px" }
+
 <p style="margin-top: 200px;">Until recently, Darwin Core Archives (DwC-A) for DNA data had to be structured as an occurrence table and a DNA table. Like any DwC-A, this would include two XML metadata files. Extensions that can be linked to the occurrence core table could also be used.
 </p>
 
@@ -85,7 +86,7 @@ The structure of your data and/or experiment will help you decide the best struc
 
 ## Event Core
 
-<img src="/fig/DwC-A_model_with_eventCore.jpg" alt="Conceptual model of a Darwin Core Archive (DwC-A) for DNA data using Event Core" style="float: left; margin-right: 15px; width: 600px;">
+![Conceptual model of a Darwin Core Archive (DwC-A) for DNA data using Event Core]({{ page.root }}/fig/DwC-A_model_with_eventCore.jpg){: .image-with-shadow style="float: left; margin-right: 15px;" width="600px" }
 
 <p style="margin-top: 200px;">
 Last year, a tweak was made to to the extension to allow Event Core and relevant extensions to be used. However, for today we'll be keeping it simple and only working with an occurrence table and DNA table.</p>
